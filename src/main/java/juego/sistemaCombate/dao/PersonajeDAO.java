@@ -3,8 +3,8 @@ package juego.sistemaCombate.dao;
 import juego.conexion.ConexionDB;
 import juego.sistemaCombate.modelo.*;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class PersonajeDAO {
@@ -16,12 +16,9 @@ public class PersonajeDAO {
 
         try {
             Connection conex = ConexionDB.getInstance("combate_juego").getConnection();
-            String query = "SELECT p.*, c.nombre AS clase_nombre " +
-                    "FROM personajes p JOIN clases_combate c ON p.id_clase = c.id " +
-                    "WHERE p.nombre = ?";
-            PreparedStatement ps = conex.prepareStatement(query);
-            ps.setString(1, nombre);
-            ResultSet rs = ps.executeQuery();
+            CallableStatement cs = conex.prepareCall("{CALL obtener_personaje_por_nombre(?)}");
+            cs.setString(1, nombre);
+            ResultSet rs = cs.executeQuery();
 
             if (rs.next()) {
                 String claseNombre = rs.getString("clase_nombre");
@@ -36,7 +33,8 @@ public class PersonajeDAO {
                     default -> throw new RuntimeException("Rol no reconocido: " + rol);
                 }
             }
-
+            rs.close();
+            cs.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
