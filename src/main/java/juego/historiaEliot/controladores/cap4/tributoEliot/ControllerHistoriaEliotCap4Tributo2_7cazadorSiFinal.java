@@ -20,11 +20,6 @@ import java.util.ResourceBundle;
 
 public class ControllerHistoriaEliotCap4Tributo2_7cazadorSiFinal {
 
-    public void initialize(URL location, ResourceBundle resources) {
-        TributoEliot.crearInstancia(new Cazador());
-        System.out.println("Se ha creado la instancia de Eliot correctamete como cazador.");
-    }
-
     @FXML
     Label fraseLabel;
 
@@ -66,6 +61,8 @@ public class ControllerHistoriaEliotCap4Tributo2_7cazadorSiFinal {
         timeline.play();
     }
     @FXML public void initialize() {
+        TributoEliot.crearInstancia(new Cazador());
+        System.out.println("Se ha creado la instancia de Eliot correctamete como cazador.");
         iniciarEscena();
     }
     private void mostrarAlerta(String titulo, String mensaje) {

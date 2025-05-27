@@ -1,4 +1,4 @@
-package juego.historiaEliot.controladores.cap4.tributoEliot;
+package juego.historiaEliot.controladores.cap4.tributoSam;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -8,24 +8,35 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import juego.historiaEliot.TributoEliot;
 import juego.historiaEliot.mas.DialogoDAO;
-import juego.sistemaCombate.modelo.Arquero;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class ControllerHistoriaEliotCap4Tributo2_7arqueroSiFinal {
+public class ControllerHistoriaEliotCap4Tributo1_2RespuestaB {
 
     @FXML
     Label fraseLabel;
+    @FXML
+    Button opcionA;
+    @FXML Button opcionB;
 
-    @FXML private void irASiguienteInteraccion(ActionEvent e) {
+    @FXML private void irAOpcionA(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap5/tributoEliot/historiaEliotCap5Tributo1-0.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoSam/historiaEliotCap4Tributo1-4A.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch(Exception ex) {
+            ex.printStackTrace();
+            mostrarAlerta("Error", "No se pudo mostrar la siguiente vista");
+        }
+    }
+    @FXML private void irAOpcionB(ActionEvent e) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoSam/historiaEliotCap4Tributo1-4B.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -37,7 +48,11 @@ public class ControllerHistoriaEliotCap4Tributo2_7arqueroSiFinal {
     }
     private void iniciarEscena() {
         DialogoDAO dialogoDAO = new DialogoDAO();
-        String texto = dialogoDAO.obtenerTexto(125);
+        String texto = dialogoDAO.obtenerTexto(135);
+        String btnTextoA = dialogoDAO.obtenerTextobtn(141);
+        String btnTextoB = dialogoDAO.obtenerTextobtn(142);
+        opcionA.setText(btnTextoA);
+        opcionB.setText(btnTextoB);
         escribirTextoConMaquina(texto, fraseLabel, null);
     }
     private void escribirTextoConMaquina(String texto, Label destino, Runnable onFinish) {
@@ -61,8 +76,6 @@ public class ControllerHistoriaEliotCap4Tributo2_7arqueroSiFinal {
         timeline.play();
     }
     @FXML public void initialize() {
-        TributoEliot.crearInstancia(new Arquero());
-        System.out.println("Se ha creado la instancia de Eliot correctamete como arquero.");
         iniciarEscena();
     }
     private void mostrarAlerta(String titulo, String mensaje) {

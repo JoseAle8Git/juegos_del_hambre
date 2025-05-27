@@ -21,11 +21,6 @@ import java.util.ResourceBundle;
 
 public class ControllerHistoriaEliotCap4Tributo2_7normalSiFinal {
 
-    public void initialize(URL location, ResourceBundle resources) {
-        TributoEliot.crearInstancia(new Normal());
-        System.out.println("Se ha creado la instancia de Eliot correctamete como normal.");
-    }
-
     @FXML
     Label fraseLabel;
 
@@ -67,6 +62,8 @@ public class ControllerHistoriaEliotCap4Tributo2_7normalSiFinal {
         timeline.play();
     }
     @FXML public void initialize() {
+        TributoEliot.crearInstancia(new Normal());
+        System.out.println("Se ha creado la instancia de Eliot correctamete como normal.");
         iniciarEscena();
     }
     private void mostrarAlerta(String titulo, String mensaje) {
