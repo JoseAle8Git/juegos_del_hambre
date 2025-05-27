@@ -1,4 +1,4 @@
-package juego.historiaEliot.controladores.cap4.tributoEliot;
+package juego.historiaEliot.controladores.cap4.tributoSam;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -11,21 +11,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import juego.historiaEliot.TributoEliot;
 import juego.historiaEliot.mas.DialogoDAO;
-import juego.sistemaCombate.modelo.Arquero;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class ControllerHistoriaEliotCap4Tributo2_7arqueroSiFinal {
+public class ControllerHistoriaEliotCap4Tributo1_6B {
 
     @FXML
     Label fraseLabel;
 
     @FXML private void irASiguienteInteraccion(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap5/tributoEliot/historiaEliotCap5Tributo1-0.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap5/tributoSam/historiaEliotCap4Tributo1-0.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -37,7 +32,7 @@ public class ControllerHistoriaEliotCap4Tributo2_7arqueroSiFinal {
     }
     private void iniciarEscena() {
         DialogoDAO dialogoDAO = new DialogoDAO();
-        String texto = dialogoDAO.obtenerTexto(125);
+        String texto = dialogoDAO.obtenerTexto(146);
         escribirTextoConMaquina(texto, fraseLabel, null);
     }
     private void escribirTextoConMaquina(String texto, Label destino, Runnable onFinish) {
@@ -61,8 +56,6 @@ public class ControllerHistoriaEliotCap4Tributo2_7arqueroSiFinal {
         timeline.play();
     }
     @FXML public void initialize() {
-        TributoEliot.crearInstancia(new Arquero());
-        System.out.println("Se ha creado la instancia de Eliot correctamete como arquero.");
         iniciarEscena();
     }
     private void mostrarAlerta(String titulo, String mensaje) {

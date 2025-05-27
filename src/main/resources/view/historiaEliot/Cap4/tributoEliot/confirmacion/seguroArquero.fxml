@@ -12,10 +12,10 @@
             prefHeight="720" prefWidth="1221"
             fx:id="panelAP"
             stylesheets="/css/tributoEliot1_7.css">
-    <VBox alignment="CENTER" AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="400">
-        <Label text="Ten en cuenta que esta es la clase que usarás hasta el final de la partida" />
-        <Label text="¿Seguro que quieres elegir esta clase?" />
-        <HBox alignment="CENTER">
+    <VBox spacing="30" alignment="CENTER" AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="400">
+        <Label styleClass="frase" text="Ten en cuenta que esta es la clase que usarás hasta el final de la partida" />
+        <Label styleClass="frase" text="¿Seguro que quieres elegir esta clase?" />
+        <HBox spacing="30" alignment="CENTER">
             <Button text="Si" onAction="#irASiguienteVista" />
             <Button text="No" onAction="#volverAEleccion" />
         </HBox>

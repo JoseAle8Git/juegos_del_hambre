@@ -1,6 +1,6 @@
 #panelAP {
     -fx-alignment:  center;
-    -fx-background-image: url("/images/vagonCaminoCapitolio.png");
+    -fx-background-image: url("/images/despedidaSam.png");
     -fx-background-repeat:  no-repeat;
     -fx-background-position: center center;
     -fx-background-size: cover;
@@ -31,11 +31,4 @@
 .button:hover {
     -fx-background-color: linear-gradient(#660000, #1A0000);
     -fx-text-fill: #FFFFFF;
-}
-
-.frase {
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-font-size: 20px;
-    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
 }
