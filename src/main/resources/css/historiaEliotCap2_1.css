@@ -1,0 +1,7 @@
+#panelSP {
+    -fx-alignment:  center;
+    -fx-background-image: url("/images/eliotPorLevantandoseDeLaCama.png");
+    -fx-background-repeat:  no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+}

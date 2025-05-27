@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaEliot.controladores.cap1.mercado.ControllerHistoriaEliotCap1_Mercado4B"
+            prefHeight="720" prefWidth="1221"
+            fx:id="panelAP"
+            stylesheets="/css/historiaEliotMercado2Respuesta.css">
+
+    <ImageView
+            AnchorPane.bottomAnchor="60"
+            AnchorPane.rightAnchor="30"
+            fitHeight="350"
+            fitWidth="350">
+        <image>
+            <Image url="/images/eliotPersonajeInicio.png" />
+        </image>
+    </ImageView>
+    <Label fx:id="fraseLabel" AnchorPane.bottomAnchor="60" AnchorPane.leftAnchor="60" alignment="CENTER">
+        <font>
+            <Font name="System Bold" size="20" />
+        </font>
+    </Label>
+    <Button text="Continuar" onAction="#irASegundaInteraccion" AnchorPane.bottomAnchor="210" AnchorPane.leftAnchor="360" />
+
+</AnchorPane>

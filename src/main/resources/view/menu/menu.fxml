@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.controladoresMenu.ControllerMenu"
+            stylesheets="/css/menu.css">
+    <children>
+        <ImageView>
+            <image>
+                <Image url="/images/sinsajo.png" />
+            </image>
+        </ImageView>
+        <VBox fx:id="panelMenu" alignment="CENTER"
+              AnchorPane.topAnchor="20"
+              AnchorPane.bottomAnchor="20"
+              AnchorPane.leftAnchor="20"
+              AnchorPane.rightAnchor="20">
+            <children>
+                <Label text="Los Juegos del Hambre" styleClass="titulo-menu" />
+                <Button text="Jugar" onAction="#irAInicioPartida" />
+                <Button text="Ver ranking" onAction="#irARanking" />
+                <Button text="Ver reglas" onAction="#irAReglas" />
+                <Button text="Salir" onAction="#salirDelJuego" />
+            </children>
+        </VBox>
+    </children>
+
+</AnchorPane>

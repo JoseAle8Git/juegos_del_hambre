@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaEliot.controladores.cap2.dispensario.ControllerHistoriaEliotCap2_Dispensario2FinalA"
+            prefHeight="720" prefWidth="1221"
+            fx:id="panelAP"
+            stylesheets="/css/dispensarioFinalA.css">
+
+    <ImageView
+            AnchorPane.bottomAnchor="60"
+            AnchorPane.rightAnchor="30"
+            fitHeight="350"
+            fitWidth="350">
+        <image>
+            <Image url="/images/personajeLuna.png" />
+        </image>
+    </ImageView>
+    <ImageView
+            AnchorPane.bottomAnchor="60"
+            AnchorPane.leftAnchor="30"
+            fitHeight="350"
+            fitWidth="350">
+        <image>
+            <Image url="/images/eliotPersonajeInicio.png" />
+        </image>
+    </ImageView>
+    <Label fx:id="fraseLabel" wrapText="true" AnchorPane.topAnchor="150" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+        <font>
+            <Font name="System Bold" size="36" />
+        </font>
+    </Label>
+
+</AnchorPane>

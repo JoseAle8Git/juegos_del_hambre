@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="juego.historiaEliot.controladores.cap1.ControllerHistoriaEliotCap1_1"
+           prefWidth="1221" prefHeight="720"
+           id="panelVBox"
+            stylesheets="/css/historiaEliotCap1_1.css">
+    <Label fx:id="fraseLabel">
+        <font>
+            <Font name="System Bold" size="36" />
+        </font>
+    </Label>
+</VBox>

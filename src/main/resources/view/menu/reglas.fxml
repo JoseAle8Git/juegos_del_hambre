@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.controladoresMenu.ControllerReglas"
+            stylesheets="/css/reglas.css">
+    <children>
+        <ImageView>
+            <image>
+                <Image url="/images/bosque.png" />
+            </image>
+        </ImageView>
+        <VBox id="panelReglas"
+              AnchorPane.topAnchor="0"
+              AnchorPane.bottomAnchor="0"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0">
+            <HBox styleClass="panelNavegacion" alignment="CENTER" spacing="20">
+                <ImageView fitWidth="200" fitHeight="200">
+                    <image>
+                        <Image url="/images/logoSinsajo.png" />
+                    </image>
+                </ImageView>
+                <Button text="Juego" styleClass="botonMenu" onAction="#juego" />
+                <Button text="Controles" styleClass="botonMenu" />
+                <Button text="Música" styleClass="botonMenu" />
+                <Button text="Sistema de puntos" styleClass="botonMenu" onAction="#sistemaPuntos" />
+                <Button text="Sistema de combate" styleClass="botonMenu" onAction="#sistemaCombate" />
+                <Button text="Volver al menú pricipal" styleClass="botonMenu" onAction="#volverAMenu" />
+            </HBox>
+            <AnchorPane styleClass="panelConReglas" fx:id="contenedorReglas">
+                <VBox alignment="CENTER"
+                        AnchorPane.topAnchor="0"
+                        AnchorPane.leftAnchor="20"
+                        AnchorPane.rightAnchor="20">
+                    <Label text="Elección de personajes" styleClass="titulo" />
+                    <Label text="Al empezar a jugar se debe tomar una elección muy importante que influirá completamente en el juego." styleClass="contenido" />
+                    <Label text="Se dará la opción a elegir 3 personajes." styleClass="contenido" />
+                    <Label text="Dependiendo del personaje elegido la historia será completamente diferente en la aterradora Panem." styleClass="contenido" />
+                </VBox>
+                <VBox alignment="CENTER"
+                      AnchorPane.topAnchor="150"
+                      AnchorPane.leftAnchor="20"
+                      AnchorPane.rightAnchor="20">
+                    <Label text="Historia conversacional" styleClass="titulo" />
+                    <Label text="El funcionamiento del juego es el de una historia en la que se van tomando decisiones." styleClass="contenido" />
+                    <Label text="Dependiendo de la decisiones tomadas se abrira un camino de la historia u otra." styleClass="contenido" />
+                    <Label text="El juego contiene al menos 5 finales totalmente distintos por cada personaje del juego, o quiezas hayan más..." styleClass="contenido" />
+                </VBox>
+                <VBox alignment="CENTER"
+                      AnchorPane.topAnchor="300"
+                      AnchorPane.leftAnchor="0"
+                      AnchorPane.rightAnchor="0">
+                    <Label text="Historia" styleClass="titulo" />
+                    <Label text="Nuestra historia comienza en un país llamado Panem con una situción política muy especial y complicada." styleClass="contenido" />
+                    <Label text="Nuestro camino comienza en el distrito 12. Un distrito muy pobre que se encarga de suministrar carbón al Capitolio." styleClass="contenido" />
+                    <Label text="Nuestros personajes se encontraran en el situación donde ya tienen 16 años y pueden ser seleccionados para los Juegos del Hambre y..." styleClass="contenido" />
+                </VBox>
+            </AnchorPane>
+        </VBox>
+    </children>
+</AnchorPane>

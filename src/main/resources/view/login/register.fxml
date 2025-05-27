@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.controladoresLogin.ControllerRegister"
+            stylesheets="/css/register.css">
+    <ImageView>
+        <image>
+            <Image url="/images/sinsajo.png" />
+        </image>
+    </ImageView>
+    <VBox fx:id="panelRegistro"
+          alignment="CENTER"
+          AnchorPane.topAnchor="30"
+          AnchorPane.bottomAnchor="30"
+          AnchorPane.leftAnchor="30"
+          AnchorPane.rightAnchor="30">
+        <children>
+            <Label text="Registro de usuario" styleClass="titulo-registro" />
+            <Label text="Nombre de usuario" styleClass="label-claro" />
+            <TextField fx:id="registroNombreUsuario" promptText="Elige un nombre de usuario" />
+            <Label text="Contraseña:" styleClass="label-claro" />
+            <PasswordField fx:id="registroContrasena" promptText="Elige una contraseña" />
+            <Label text="Confirmar contraseña" styleClass="label-claro" />
+            <PasswordField fx:id="registroConfirmarContrasena" promptText="Vuelve a escribir la contraseña" />
+            <Button text="Registrarse" onAction="#handleRegistro" />
+            <Hyperlink text="¿Ya tienes cuenta? Inicia sesión" onAction="#irALogin"/>
+        </children>
+    </VBox>
+
+</AnchorPane>

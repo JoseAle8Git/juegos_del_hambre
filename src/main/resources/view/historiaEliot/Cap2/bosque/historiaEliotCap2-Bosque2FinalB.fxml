@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaEliot.controladores.cap2.bosque.ControllerHistoriaEliotCap2_Bosque2FinalB"
+            prefHeight="720" prefWidth="1221"
+            fx:id="panelAP"
+            stylesheets="/css/cap2Final.css">
+
+    <ImageView
+            AnchorPane.bottomAnchor="60"
+            AnchorPane.rightAnchor="30"
+            fitHeight="350"
+            fitWidth="350">
+        <image>
+            <Image url="/images/personajeGalen.png" />
+        </image>
+    </ImageView>
+    <ImageView
+            AnchorPane.bottomAnchor="60"
+            AnchorPane.leftAnchor="30"
+            fitHeight="350"
+            fitWidth="350">
+        <image>
+            <Image url="/images/eliotPersonajeInicio.png" />
+        </image>
+    </ImageView>
+    <Label fx:id="fraseLabel" wrapText="true" AnchorPane.topAnchor="150" AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10">
+        <font>
+            <Font name="System Bold" size="36" />
+        </font>
+    </Label>
+
+</AnchorPane>

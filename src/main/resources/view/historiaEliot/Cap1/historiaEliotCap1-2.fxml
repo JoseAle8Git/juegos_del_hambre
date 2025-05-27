@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="juego.historiaEliot.controladores.cap1.ControllerHistoriaEliotCap1_2"
+      prefWidth="1221" prefHeight="720"
+      id="panelVBox"
+      stylesheets="/css/historiaEliotCap1_2.css"
+      spacing="30">
+    <Label fx:id="fraseLabel" text="Selecciona una opción:" />
+    <HBox alignment="CENTER" spacing="50">
+        <Button text="Ir al mercado" fx:id="btnCasa" onAction="#irAlMercado" />
+        <Button text="Ir a casa" fx:id="btnMercado" onAction="#irACasa" />
+    </HBox>
+</VBox>

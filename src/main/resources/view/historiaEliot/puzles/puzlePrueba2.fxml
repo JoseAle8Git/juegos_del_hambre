@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx"
+            fx:controller="juego.historiaEliot.controladores.cap1.puzlesPrueba.ControllerPuzlePrueba2"
+            prefWidth="1221" prefHeight="720" stylesheets="/css/puzle2.css">
+
+    <!-- Pantalla de reglas -->
+    <VBox fx:id="reglasBox" alignment="CENTER" spacing="20" prefWidth="1221" prefHeight="720">
+        <Label text="REGLAS DEL MINIJUEGO" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: white;" />
+        <Label wrapText="true" maxWidth="800"
+               text="Haz clic únicamente en los botones CIRCULARES. Evita los CUADRADOS. Si fallas o tardas más de 0.75 segundos, pierdes."
+               style="-fx-font-size: 18; -fx-text-fill: white;" />
+        <Button text="JUGAR" onAction="#empezarJuego" style="-fx-font-size: 20; -fx-padding: 10 30 10 30;" />
+    </VBox>
+
+    <!-- Zona de juego -->
+    <VBox fx:id="juegoBox" alignment="TOP_CENTER" spacing="10" layoutX="0" layoutY="0" prefWidth="1221" prefHeight="720" visible="false" managed="false">
+        <Label fx:id="estadoLabel" text="" style="-fx-font-size: 20; -fx-text-fill: white;" alignment="CENTER" />
+        <Pane fx:id="zonaJuego" prefWidth="1100" prefHeight="600" />
+        <Button fx:id="continuarButton" text="CONTINUAR" visible="false" onAction="#continuarJuego"
+                style="-fx-font-size: 18; -fx-padding: 8 20 8 20;" />
+    </VBox>
+
+</AnchorPane>

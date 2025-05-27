@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaEliot.controladores.cap1.puzlesPrueba.ControllerPuzlePrueba1"
+            prefHeight="720" prefWidth="1221"
+            fx:id="panelAP"
+            stylesheets="/css/puzle1.css">
+
+    <!-- Vista de reglas -->
+    <VBox fx:id="reglasBox" alignment="CENTER" spacing="20" layoutX="0" layoutY="0" prefWidth="1221" prefHeight="720">
+        <Label text="REGLAS DEL MINIJUEGO" style="-fx-font-size: 28; -fx-font-weight: bold;" />
+        <Label wrapText="true" maxWidth="800"
+               text="Memoriza la secuencia de colores que se mostrará brevemente.
+Después, repite la secuencia en el mismo orden pulsando los botones de colores.
+Si te equivocas, volverás a esta pantalla. Si aciertas, podrás continuar."
+               style="-fx-font-size: 18;" />
+        <Button fx:id="jugarButton" text="JUGAR" onAction="#empezarJuego"
+                style="-fx-font-size: 20; -fx-padding: 10 30 10 30;" />
+    </VBox>
+
+    <!-- Vista del juego -->
+    <VBox fx:id="juegoBox" alignment="CENTER" spacing="25" layoutX="0" layoutY="0" prefWidth="1221" prefHeight="720" visible="false" managed="false">
+        <Label fx:id="instruccionesLabel" text="Memoriza la secuencia" style="-fx-font-size: 24;" />
+        <HBox fx:id="secuenciaBox" alignment="CENTER" spacing="15" />
+        <HBox fx:id="opcionesBox" alignment="CENTER" spacing="15" />
+        <Label fx:id="patronLabel" text="" style="-fx-font-size: 20;" />
+        <Button fx:id="continuarButton" text="CONTINUAR" visible="false" onAction="#continuarJuego"
+                style="-fx-font-size: 18; -fx-padding: 8 20 8 20;" />
+    </VBox>
+
+</AnchorPane>
