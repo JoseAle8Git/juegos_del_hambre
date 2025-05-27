@@ -12,6 +12,11 @@ public class Jugador extends Personaje {
         super(nombre, clase);
     }
 
+    public Jugador(String nombre, ClaseCombate clase, Inventario inventario) {
+        super(nombre, clase);
+        this.inventario = inventario;
+    }
+
     @Override
     public Ataque elegirAtaque() {
         Scanner scanner = new Scanner(System.in);
@@ -32,7 +37,7 @@ public class Jugador extends Personaje {
             if (scanner.hasNextInt()) {
                 opcion = scanner.nextInt();
             } else {
-                scanner.next(); // limpiar entrada inválida
+                scanner.next();
             }
         }
 
@@ -63,5 +68,9 @@ public class Jugador extends Personaje {
     public void resetConsumiblesTurno() {
         consumidoCarneEsteTurno = false;
         consumidoHojaEsteTurno = false;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
     }
 }
