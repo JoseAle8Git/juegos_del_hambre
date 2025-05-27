@@ -39,8 +39,7 @@ public class ControllerLogin {
                 String contrasenaHashAlmacenada = result.getString("contrasena");
                 if(BCrypt.checkpw(contrasena, contrasenaHashAlmacenada)) {
                     try {
-                        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu/menu.fxml"));
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoSam/historiaEliotCap4Tributo1-0.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu/menu.fxml"));
                         Scene scene = new Scene(loader.load());
                         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                         stage.setScene(scene);
