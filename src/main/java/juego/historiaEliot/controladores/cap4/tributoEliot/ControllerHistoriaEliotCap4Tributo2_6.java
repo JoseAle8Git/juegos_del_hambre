@@ -25,7 +25,7 @@ public class ControllerHistoriaEliotCap4Tributo2_6 {
 
     @FXML private void irAOpcionA(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/seguroGuerrero.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/confirmacion/seguroGuerrero.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -37,7 +37,7 @@ public class ControllerHistoriaEliotCap4Tributo2_6 {
     }
     @FXML private void irAOpcionB(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/seguroArquero.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/confirmacion/seguroArquero.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -49,7 +49,7 @@ public class ControllerHistoriaEliotCap4Tributo2_6 {
     }
     @FXML private void irAOpcionC(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/seguroCazador.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/confirmacion/seguroCazador.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -61,7 +61,7 @@ public class ControllerHistoriaEliotCap4Tributo2_6 {
     }
     @FXML private void irAOpcionD(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/seguroAsesino.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/confirmacion/seguroAsesino.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -73,7 +73,7 @@ public class ControllerHistoriaEliotCap4Tributo2_6 {
     }
     @FXML private void irAOpcionE(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/seguroNormal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/confirmacion/seguroNormal.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -85,14 +85,12 @@ public class ControllerHistoriaEliotCap4Tributo2_6 {
     }
     private void iniciarEscena() {
         DialogoDAO dialogoDAO = new DialogoDAO();
-        String texto = dialogoDAO.obtenerTexto(113);
-        String btnTextoA = dialogoDAO.obtenerTextobtn(120);
-        String btnTextoB = dialogoDAO.obtenerTextobtn(121);
-        String btnTextoC = dialogoDAO.obtenerTextobtn(121);
-        String btnTextoD = dialogoDAO.obtenerTextobtn(121);
-        String btnTextoE = dialogoDAO.obtenerTextobtn(121);
-        opcionA.setText(btnTextoA);
-        opcionB.setText(btnTextoB);
+        String texto = dialogoDAO.obtenerTexto(114);
+        opcionA.setText("Guerrero");
+        opcionB.setText("Arquero");
+        opcionC.setText("Cazador");
+        opcionD.setText("Asesino");
+        opcionE.setText("Normal");
         escribirTextoConMaquina(texto, fraseLabel, null);
     }
     private void escribirTextoConMaquina(String texto, Label destino, Runnable onFinish) {
