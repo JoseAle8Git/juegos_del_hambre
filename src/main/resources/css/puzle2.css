@@ -1,0 +1,26 @@
+.root {
+    -fx-background-color: #0007;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+    -fx-font-size: 30px;
+}
+
+.boton-circular {
+    -fx-shape: "M0,30 A30,30 0 1,1 60,30 A30,30 0 1,1 0,30";
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
+    -fx-background-radius: 30;
+}
+
+.boton-cuadrado {
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
+    -fx-background-radius: 0;
+}
