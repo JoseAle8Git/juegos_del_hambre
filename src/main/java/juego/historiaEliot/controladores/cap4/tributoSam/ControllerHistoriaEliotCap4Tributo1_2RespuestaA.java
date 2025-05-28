@@ -1,4 +1,4 @@
-package juego.historiaEliot.controladores.cap4.tributoEliot;
+package juego.historiaEliot.controladores.cap4.tributoSam;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -14,18 +14,17 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import juego.historiaEliot.mas.DialogoDAO;
 
-public class ControllerHistoriaEliotCap4Tributo2_6 {
+public class ControllerHistoriaEliotCap4Tributo1_2RespuestaA {
 
-    @FXML Label fraseLabel;
-    @FXML Button opcionA;
+    @FXML
+    Label fraseLabel;
+    @FXML
+    Button opcionA;
     @FXML Button opcionB;
-    @FXML Button opcionC;
-    @FXML Button opcionD;
-    @FXML Button opcionE;
 
     @FXML private void irAOpcionA(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/confirmacion/seguroGuerrero.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoSam/historiaEliotCap4Tributo1-3A.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -37,43 +36,7 @@ public class ControllerHistoriaEliotCap4Tributo2_6 {
     }
     @FXML private void irAOpcionB(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/confirmacion/seguroArquero.fxml"));
-            Scene scene = new Scene(loader.load());
-            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch(Exception ex) {
-            ex.printStackTrace();
-            mostrarAlerta("Error", "No se pudo mostrar la siguiente vista");
-        }
-    }
-    @FXML private void irAOpcionC(ActionEvent e) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/confirmacion/seguroCazador.fxml"));
-            Scene scene = new Scene(loader.load());
-            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch(Exception ex) {
-            ex.printStackTrace();
-            mostrarAlerta("Error", "No se pudo mostrar la siguiente vista");
-        }
-    }
-    @FXML private void irAOpcionD(ActionEvent e) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/confirmacion/seguroAsesino.fxml"));
-            Scene scene = new Scene(loader.load());
-            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch(Exception ex) {
-            ex.printStackTrace();
-            mostrarAlerta("Error", "No se pudo mostrar la siguiente vista");
-        }
-    }
-    @FXML private void irAOpcionE(ActionEvent e) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/confirmacion/seguroNormal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoSam/historiaEliotCap4Tributo1-3B.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -85,12 +48,11 @@ public class ControllerHistoriaEliotCap4Tributo2_6 {
     }
     private void iniciarEscena() {
         DialogoDAO dialogoDAO = new DialogoDAO();
-        String texto = dialogoDAO.obtenerTexto(114);
-        opcionA.setText("Guerrero");
-        opcionB.setText("Arquero");
-        opcionC.setText("Cazador");
-        opcionD.setText("Asesino");
-        opcionE.setText("Normal");
+        String texto = dialogoDAO.obtenerTexto(134);
+        String btnTextoA = dialogoDAO.obtenerTextobtn(139);
+        String btnTextoB = dialogoDAO.obtenerTextobtn(140);
+        opcionA.setText(btnTextoA);
+        opcionB.setText(btnTextoB);
         escribirTextoConMaquina(texto, fraseLabel, null);
     }
     private void escribirTextoConMaquina(String texto, Label destino, Runnable onFinish) {
