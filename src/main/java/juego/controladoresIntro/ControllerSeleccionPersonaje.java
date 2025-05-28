@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import juego.historiaKatniss.controlador.Cjuego;
 
 public class ControllerSeleccionPersonaje {
 
@@ -28,5 +29,10 @@ public class ControllerSeleccionPersonaje {
         alerta.setHeaderText(null);
         alerta.setContentText(mensaje);
         alerta.showAndWait();
+    }
+
+    @FXML public void iniciarHistoriaKatniss(ActionEvent actionEvent) {
+        Cjuego juego = new Cjuego();
+        juego.iniciarJuego();
     }
 }

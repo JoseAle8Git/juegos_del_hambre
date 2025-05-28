@@ -17,7 +17,7 @@
     </Label>
     <HBox alignment="CENTER" spacing="50">
         <Button text="Eliot" fx:id="btnEliot" onAction="#iniciarHistoriaEliot" />
-        <Button text="Katnis" fx:id="btnKatnis" />
+        <Button text="Katnis" fx:id="btnKatnis" onAction="#iniciarHistoriaKatniss" />
         <Button text="Peeta" fx:id="btnPeeta" />
     </HBox>
 </VBox>
