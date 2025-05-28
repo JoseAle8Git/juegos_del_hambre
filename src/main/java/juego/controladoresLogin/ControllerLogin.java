@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import juego.conexion.ConexionDB;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,10 +32,9 @@ public class ControllerLogin {
         }
         try {
             Connection conex = ConexionDB.getInstance(NOMBREDB).getConnection();
-            String query = "SELECT contrasena FROM usuarios WHERE nombre_usuario = ?";
-            PreparedStatement querySelect = conex.prepareStatement(query);
-            querySelect.setString(1, usuario);
-            ResultSet result = querySelect.executeQuery();
+            CallableStatement cs = conex.prepareCall("{CALL obtener_contrasena_por_usuario(?)}");
+            cs.setString(1, usuario);
+            ResultSet result = cs.executeQuery();
             if(result.next()) {
                 String contrasenaHashAlmacenada = result.getString("contrasena");
                 if(BCrypt.checkpw(contrasena, contrasenaHashAlmacenada)) {
@@ -55,7 +55,7 @@ public class ControllerLogin {
                 mostrarAlerta("Usuario no encontrado", "No existe ningún usuario con ese nombre.");
             }
             result.close();
-            querySelect.close();
+            cs.close();
         } catch(Exception ex) {
             ex.printStackTrace();
             mostrarAlerta("Error de conexión", "No se pudo conectar con la base de datos.");
