@@ -2,9 +2,7 @@ package juego.historiaEliot.mas;
 
 import juego.conexion.ConexionDB;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,15 +10,14 @@ public class DialogoDAO {
 
     public String obtenerTexto(int indice) {
         String texto = "";
-        String Query1 = "SELECT texto FROM dialogos WHERE id = ?";
         try {
-            Connection conex = ConexionDB.getInstance("comabte_juego").getConnection();
-            PreparedStatement ps1 =  conex.prepareStatement(Query1);
-            ps1.setInt(1, indice);
-            ResultSet rs1 = ps1.executeQuery();
-            if (rs1.next()) {
-                texto = rs1.getString("texto");
-            }
+            Connection conex = ConexionDB.getInstance("combate_juego").getConnection();
+            CallableStatement cs1 = conex.prepareCall("{CALL obtener_texto_por_id(?, ?)}");
+            cs1.setInt(1, indice);
+            cs1.registerOutParameter(2, Types.VARCHAR);
+            cs1.execute();
+            texto = cs1.getString(2);
+            cs1.close();
         } catch(Exception ex) {
             ex.printStackTrace();
         }
@@ -28,15 +25,14 @@ public class DialogoDAO {
     }
     public String obtenerTextobtn(int indice) {
         String texto = "";
-        String Query1 = "SELECT btn_texto FROM dialogos WHERE id = ?";
         try {
-            Connection conex = ConexionDB.getInstance("comabte_juego").getConnection();
-            PreparedStatement ps1 =  conex.prepareStatement(Query1);
-            ps1.setInt(1, indice);
-            ResultSet rs1 = ps1.executeQuery();
-            if (rs1.next()) {
-                texto = rs1.getString("btn_texto");
-            }
+            Connection conex = ConexionDB.getInstance("combate_juego").getConnection();
+            CallableStatement cs1 = conex.prepareCall("{CALL obtener_btn_texto_por_id(?, ?)}");
+            cs1.setInt(1, indice);
+            cs1.registerOutParameter(2, Types.VARCHAR);
+            cs1.execute();
+            texto = cs1.getString(2);
+            cs1.close();
         } catch(Exception ex) {
             ex.printStackTrace();
         }

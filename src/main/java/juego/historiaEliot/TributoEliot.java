@@ -38,6 +38,10 @@ public class TributoEliot {
         return instancia;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public ClaseCombate getClase() {
         return clase;
     }
@@ -55,7 +59,7 @@ public class TributoEliot {
     }
 
     public void setHambre(int cantidad) {
-        hambre = Math.max(0, hambre + cantidad);
+        hambre = Math.max(0, Math.min(100, cantidad));
     }
 
     public int getSed() {
@@ -63,7 +67,7 @@ public class TributoEliot {
     }
 
     public void setSed(int cantidad) {
-        sed = Math.max(0, sed + cantidad);
+        sed = Math.max(0, Math.min(100, cantidad));
     }
 
     public Map<String, Integer> getInventarioGeneral() {
@@ -72,6 +76,14 @@ public class TributoEliot {
 
     public void anadirInventario(String nombre, int cantidad) {
         inventarioGeneral.put(nombre, inventarioGeneral.getOrDefault(nombre, 0) + cantidad);
+    }
+
+    public Inventario getInventarioComando() {
+        return inventarioCombate;
+    }
+
+    public void curar(int cantidad) {
+        vidaActual = Math.min(vidaActual + cantidad, clase.getVidaMaxima());
     }
 
     public boolean consumirObjeto(String nombre) {
@@ -83,6 +95,12 @@ public class TributoEliot {
         return false;
     }
 
-
+    public void restaurarEstadoCompleto() {
+        this.vidaActual = clase.getVidaMaxima();
+        this.hambre = 100;
+        this.sed = 100;
+        this.inventarioGeneral.replaceAll((k, v) -> 0);
+        this.inventarioCombate.reiniciar();
+    }
 
 }
