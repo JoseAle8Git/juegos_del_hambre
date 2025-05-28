@@ -12,10 +12,7 @@ import javafx.stage.Stage;
 import juego.conexion.ConexionDB;
 import org.mindrot.jbcrypt.BCrypt;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ControllerRegister {
 
@@ -43,28 +40,24 @@ public class ControllerRegister {
         try {
             Connection conex = ConexionDB.getInstance(NOMBRE_DB).getConnection();
 
-            String query = "SELECT COUNT(*) FROM usuarios WHERE nombre_usuario = ?";
-            PreparedStatement queryCheck = conex.prepareStatement(query);
-            queryCheck.setString(1, usuario);
-            ResultSet result =  queryCheck.executeQuery();
-            result.next();
-            if(result.getInt(1) > 0) {
+            CallableStatement cs1 = conex.prepareCall("{CALL usuario_existe(?, ?)}");
+            cs1.setString(1, usuario);
+            cs1.registerOutParameter(2, Types.INTEGER);
+            cs1.execute();
+            int existe = cs1.getInt(2);
+            cs1.close();
+            if (existe > 0) {
                 mostrarAlerta("Usuario existente", "Ese nombre de usuario ya está registrado.");
-                result.close();
-                queryCheck.close();
                 return;
             }
-            result.close();
-            queryCheck.close();
 
             String hash = BCrypt.hashpw(contrasena, BCrypt.gensalt());
 
-            String queryIn = "INSERT INTO usuarios (nombre_usuario, contrasena) VALUES (?,?)";
-            PreparedStatement queryInsert = conex.prepareStatement(queryIn);
-            queryInsert.setString(1, usuario);
-            queryInsert.setString(2, hash);
-            queryInsert.executeUpdate();
-            queryInsert.close();
+            CallableStatement cs2 = conex.prepareCall("{CALL insertar_usuario(?, ?)}");
+            cs2.setString(1, usuario);
+            cs2.setString(2, hash);
+            cs2.executeUpdate();
+            cs2.close();
 
             mostrarAlerta("Registro exitoso", "Usuario creado correctamente. Inicia sesión.");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login/login.fxml"));
