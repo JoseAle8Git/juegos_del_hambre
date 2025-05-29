@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaPeeta.controladores.ControllerFlashbackEleccion"
+            stylesheets="/css/cssPeeta/flaskbackEleccion.css">
+    <ImageView>
+        <image>
+            <Image url="/images/imagesPeeta/flashback.png" requestedHeight="720" requestedWidth="1221"/>
+        </image>
+    </ImageView>
+    <HBox fx:id="botones">
+        <Button text="Ayudar a la chica" onAction="#ayudar"/>
+        <Button text="No ayudar a la chica" onAction="#noAyudar"/>
+    </HBox>
+</StackPane>

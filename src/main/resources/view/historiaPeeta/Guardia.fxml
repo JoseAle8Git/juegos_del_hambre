@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="juego.historiaPeeta.controladores.ControllerGuardia"
+           stylesheets="/css/cssPeeta/guardia.css">
+    <ImageView>
+        <image>
+            <Image url="/images/imagesPeeta/distrito12.png" requestedHeight="720" requestedWidth="1221"/>
+        </image>
+    </ImageView>
+    <HBox fx:id="caja">
+        <ImageView fitHeight="300" preserveRatio="true">
+            <Image url="/images/imagesPeeta/guardiaConCasco.png"/>
+        </ImageView>
+        <VBox styleClass="vbox">
+            <Label styleClass="texto" text="Te diriges hacia la fila de inscripción, cuando te cruzas con guardia de seguridad. El guardia está jugando con una moneda. Por lo que parece está teniendo un día bastante aburrido. Nota que lo estás observando, y te hace una pregunta:" />
+            <Label styleClass="texto" text="Chico, ¿quieres jugar a un juego?"/>
+            <HBox styleClass="hbox">
+                <Button text="Si" onAction="#juegoGuardia"/>
+                <Button text="No" onAction="#saltarJuegoGuardia"/>
+            </HBox>
+        </VBox>
+    </HBox>
+</StackPane>
