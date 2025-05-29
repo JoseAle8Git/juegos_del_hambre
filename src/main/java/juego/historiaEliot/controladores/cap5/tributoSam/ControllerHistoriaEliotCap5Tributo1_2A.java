@@ -1,4 +1,4 @@
-package juego.historiaEliot.controladores.cap4.tributoSam;
+package juego.historiaEliot.controladores.cap5.tributoSam;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -13,14 +13,14 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import juego.historiaEliot.mas.DialogoDAO;
 
-public class ControllerHistoriaEliotCap4Tributo1_3B {
+public class ControllerHistoriaEliotCap5Tributo1_2A {
 
     @FXML
     Label fraseLabel;
 
     @FXML private void irASiguienteInteraccion(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap5/tributoSam/historiaEliotCap5Tributo1-0.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap5/tributoSam/historiaEliotCap5Tributo1-2Respuesta.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -32,7 +32,7 @@ public class ControllerHistoriaEliotCap4Tributo1_3B {
     }
     private void iniciarEscena() {
         DialogoDAO dialogoDAO = new DialogoDAO();
-        String texto = dialogoDAO.obtenerTexto(140);
+        String texto = dialogoDAO.obtenerTexto(153);
         escribirTextoConMaquina(texto, fraseLabel, null);
     }
     private void escribirTextoConMaquina(String texto, Label destino, Runnable onFinish) {
