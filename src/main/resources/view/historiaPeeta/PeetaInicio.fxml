@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="juego.historiaPeeta.controladores.ControllerPeetaInicio"
+           prefHeight="720" prefWidth="1221" stylesheets="/css/cssPeeta/peetaInicio.css" styleClass="fondo">
+    <VBox fx:id="caja">
+        <ImageView fitHeight="400" preserveRatio="true">
+            <Image url="/images/imagesPeeta/peetaSinFondo.png"/>
+        </ImageView>
+        <Label styleClass="texto" text="Has elegido a Peeta, habitante del Distrito 12, una de las zonas más pobres de Panem. Peeta es un joven con una vida tranquila, proveniente de una familia de panaderos.Desde pequeño, Peeta demostró una gran habilidad para la panadería, y su familia, aunque no rica, tenía una panadería que les permitía sobrevivir." wrapText="true"/>
+        <Button text="Comenzar" onAction="#empezarPeeta"/>
+    </VBox>
+</StackPane>

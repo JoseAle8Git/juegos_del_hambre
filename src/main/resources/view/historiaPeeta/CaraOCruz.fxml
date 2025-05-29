@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="juego.historiaPeeta.controladores.ControllerCaraOCruz"
+           stylesheets="/css/cssPeeta/caraOCruz.css">
+    <ImageView>
+        <image>
+            <Image url="/images/imagesPeeta/distrito12.png" requestedHeight="720" requestedWidth="1221"/>
+        </image>
+    </ImageView>
+    <VBox fx:id="vbox">
+        <Label text="Elige cara o cruz"/>
+        <VBox styleClass="hbox">
+            <HBox styleClass="subcaja">
+                <ImageView fitHeight="200" preserveRatio="true">
+                    <Image url="/images/imagesPeeta/cara.png"/>
+                </ImageView>
+                <ImageView fitHeight="185" preserveRatio="true">
+                    <Image url="/images/imagesPeeta/cruz.png"/>
+                </ImageView>
+            </HBox>
+            <HBox styleClass="subcajaAbajo">
+                <Button text="Cara" onAction="#cara"/>
+                <Button text="Cruz" onAction="#cruz"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</StackPane>
