@@ -34,11 +34,20 @@ public class ControllerSeleccionPersonaje {
         alerta.showAndWait();
     }
 
-    @FXML public void iniciarHistoriaKatniss(ActionEvent actionEvent) {
-        Cjuego juego = new Cjuego();
-        juego.iniciarJuego();
+    @FXML
+    public void iniciarHistoriaKatniss(ActionEvent actionEvent) {
+
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+
+        new Thread(() -> {
+            Cjuego juego = new Cjuego();
+            juego.iniciarJuego();
+        }).start();
     }
 
+<<<<<<< HEAD
+=======
     @FXML private void iniciarHistoriaPeeta(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/Flashback.fxml"));
@@ -51,4 +60,5 @@ public class ControllerSeleccionPersonaje {
             e.printStackTrace();
         }
     }
+>>>>>>> origin/main
 }
