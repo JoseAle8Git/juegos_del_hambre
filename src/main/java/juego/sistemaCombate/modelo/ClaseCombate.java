@@ -53,4 +53,6 @@ public abstract class ClaseCombate {
     public double getEscudoPorcentaje() {
         return escudoPorcentaje;
     }
+
+
 }
