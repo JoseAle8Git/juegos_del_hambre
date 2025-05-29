@@ -20,7 +20,7 @@ public class ControllerHistoriaEliotCap4Tributo1_3A {
 
     @FXML private void irASiguienteInteraccion(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap5/tributoSam/historiaEliotCap4Tributo1-0.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap5/tributoSam/historiaEliotCap5Tributo1-0.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);

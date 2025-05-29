@@ -1,4 +1,4 @@
-package juego.historiaEliot.controladores.cap4.tributoSam;
+package juego.historiaEliot.controladores.cap5.tributoSam;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -8,19 +8,35 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import juego.historiaEliot.mas.DialogoDAO;
 
-public class ControllerHistoriaEliotCap4Tributo1_3B {
+public class ControllerHistoriaEliotCap5Tributo1_2 {
 
     @FXML
     Label fraseLabel;
+    @FXML
+    Button opcionA;
+    @FXML Button opcionB;
 
-    @FXML private void irASiguienteInteraccion(ActionEvent e) {
+    @FXML private void irAOpcionA(ActionEvent e) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap5/tributoSam/historiaEliotCap5Tributo1-0.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap5/tributoSam/historiaEliotCap5Tributo1-2A.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch(Exception ex) {
+            ex.printStackTrace();
+            mostrarAlerta("Error", "No se pudo mostrar la siguiente vista");
+        }
+    }
+    @FXML private void irAOpcionB(ActionEvent e) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap5/tributoSam/historiaEliotCap5Tributo1-2B.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
@@ -32,7 +48,11 @@ public class ControllerHistoriaEliotCap4Tributo1_3B {
     }
     private void iniciarEscena() {
         DialogoDAO dialogoDAO = new DialogoDAO();
-        String texto = dialogoDAO.obtenerTexto(140);
+        String texto = dialogoDAO.obtenerTexto(147);
+        String btnTextoA = dialogoDAO.obtenerTextobtn(153);
+        String btnTextoB = dialogoDAO.obtenerTextobtn(154);
+        opcionA.setText(btnTextoA);
+        opcionB.setText(btnTextoB);
         escribirTextoConMaquina(texto, fraseLabel, null);
     }
     private void escribirTextoConMaquina(String texto, Label destino, Runnable onFinish) {
