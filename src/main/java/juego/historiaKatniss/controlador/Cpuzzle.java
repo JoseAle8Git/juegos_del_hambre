@@ -82,5 +82,28 @@ public class Cpuzzle {
 			jugador.añadirPuntos(5);
 		}
 	}
+//CAPITULO 3
+public static void acertijoDelMapa(Jugador jugador) {
+	int intento = MenuConsola.menuOpciones(
+			"La caja proyecta este enigma:\n" +
+					"'Me oculto a plena vista, soy buscado por los sabios.\n" +
+					"No tengo forma, pero sin mí no puedes ver. ¿Qué soy?'",
+			"✦ El conocimiento", "✦ La luz", "✦ La sombra", "✦ El reflejo");
+
+	if (intento == 2) { // La luz
+		Narrador.mostrar("✦ Un clic mecánico suena. La caja reconoce tu respuesta.");
+		Narrador.mostrar("✦ Dentro hay un pequeño dispositivo: un mapa holográfico del terreno de los Juegos.");
+		Narrador.mostrar("✦ Tiene puntos marcados, zonas de recursos y refugios. Lo escondes con cuidado.");
+
+		jugador.getInventario().añadirObjeto("Mapa holográfico del Capitolio");
+		jugador.setMapaJuego(new MapaJuego(true));  // Aquí se entrega el objeto real de mapa
+		jugador.añadirPuntos(25);
+	} else {
+		Narrador.mostrar("✦ La caja se bloquea con un sonido seco.");
+		Narrador.mostrar("✦ Aparece un mensaje en la pantalla: 'Mala suerte, tributo. El Capitolio observa.'");
+		Narrador.mostrar("✦ Te alejas del compartimento con una sensación amarga. Quizás no era tu noche.");
+		jugador.añadirPuntos(5);
+	}
+}
 
 }
