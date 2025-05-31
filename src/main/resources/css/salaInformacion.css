@@ -1,0 +1,67 @@
+.root {
+    -fx-background-color: #0b0c10;
+}
+
+.button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700; /* dorado */
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-background-radius: 10;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#660000, #1A0000);
+    -fx-text-fill: #FFFFFF;
+}
+
+.interruptor {
+    -fx-pref-width: 60;
+    -fx-pref-height: 60;
+    -fx-background-color: #c5c6c7;
+}
+
+.interruptor:selected {
+    -fx-background-color: #45a29e;
+}
+
+.resultado {
+    -fx-text-fill: #66fcf1;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.password-revelada {
+    -fx-text-fill: #f5f242;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-opacity: 0;
+}
+
+.reglas-panel {
+    -fx-background-color: #1f2833;
+    -fx-border-color: #66fcf1;
+    -fx-border-width: 2;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.titulo {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #fff;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.texto {
+    -fx-font-size: 18px;
+    -fx-text-fill: #fff;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}

@@ -10,6 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import juego.conexion.ConexionDB;
+import juego.ranking.InsertarRanking;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.CallableStatement;
@@ -39,7 +40,10 @@ public class ControllerLogin {
                 String contrasenaHashAlmacenada = result.getString("contrasena");
                 if(BCrypt.checkpw(contrasena, contrasenaHashAlmacenada)) {
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu/menu.fxml"));
+                        InsertarRanking ranking = InsertarRanking.crearInstancia();
+                        ranking.setNombreUsuario(usuario);
+                        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu/menu.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap6/tributoSam/salvarASam/historiaEliotMapa.fxml"));
                         Scene scene = new Scene(loader.load());
                         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                         stage.setScene(scene);
