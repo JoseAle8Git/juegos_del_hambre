@@ -103,4 +103,30 @@ public class Combate {
         }
     }
 
+    public Aliado getAliado() {
+        return aliado;
+    }
+
+    public boolean atacarConAliado(Label mensaje) {
+        if (aliado != null && Math.random() < 0.3 && enemigo.estaVivo()) {
+            Ataque ataqueAliado = aliado.elegirAtaque();
+            boolean impacto = aplicarAtaque(aliado, enemigo, ataqueAliado);
+            mensaje.setText("" + aliado.getNombre() + " usa " + ataqueAliado.getNombre() + (impacto ? " ¡Impacta!" : " ¡Falla!"));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean redirigirAtaqueAlAliado() {
+        return aliado != null && aliado.estaVivo() && Math.random() < 0.2;
+    }
+
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public Enemigo getEnemigo() {
+        return enemigo;
+    }
+
 }
