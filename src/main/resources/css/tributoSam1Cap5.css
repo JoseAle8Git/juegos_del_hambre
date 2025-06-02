@@ -14,10 +14,60 @@
     -fx-background-size: cover;
 }
 
+#panelAPS {
+    -fx-alignment:  center;
+    -fx-background-image: url("/images/vagonEscondidos.png");
+    -fx-background-repeat:  no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+}
+
+#panelSP1 {
+    -fx-alignment:  center;
+    -fx-background-image: url("/images/pasaDesapercibido.png");
+    -fx-background-repeat:  no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+}
+
+#panelSP2 {
+    -fx-alignment:  center;
+    -fx-background-image: url("/images/escapandoGuardiasTren.png");
+    -fx-background-repeat:  no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+}
+
+#panelSPD {
+    -fx-alignment:  center;
+    -fx-background-image: url("/images/correCorre.png");
+    -fx-background-repeat:  no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+}
+
 #fraseLabel {
     -fx-text-fill: white;
     -fx-alignment:  center;
     -fx-text-alignment: center;
     -fx-wrap-text: true;
     -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700;
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-background-radius: 10;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#660000, #1A0000);
+    -fx-text-fill: #FFFFFF;
 }

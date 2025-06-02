@@ -5,7 +5,11 @@ import juego.historiaKatniss.vista.*;
 import juego.sistemaCombate.dao.ClaseCombateDAO;
 import juego.sistemaCombate.modelo.ClaseCombate;
 
+import java.util.Random;
+
 public class Cjuego {
+	private int combatesRealizados = 0;
+	private int tributosRestantes = 24;
 	private Jugador jugador;
 	private boolean juegoActivo = true;
 
@@ -14,7 +18,7 @@ public class Cjuego {
 		jugador = new Jugador(nombre);
 
 		juegoActivo = true;
-
+		capitulo4InicioArena();
 		capitulo1Prologo();
 		if (!juegoActivo)
 			return;
@@ -24,6 +28,12 @@ public class Cjuego {
 			return;
 
 		capitulo3CaminoAlCapitolio();
+		if (!juegoActivo)
+			return;
+
+		capitulo4InicioArena();
+		if (!juegoActivo)
+			return;
 	}
 
 	public void capitulo1Prologo() {
@@ -327,22 +337,7 @@ public class Cjuego {
 		Narrador.mostrar("✦ En un compartimento olvidado encuentras una caja metálica con símbolos del Capitolio.");
 		Narrador.mostrar("✦ Una pantalla se enciende: 'Solo quien piense más allá de lo visible, verá lo invisible'.");
 
-		int intento = MenuConsola.menuOpciones(
-				"La caja proyecta este enigma: 'Me oculto a plena vista, soy buscado por los sabios. No tengo forma, pero sin mí no puedes ver. ¿Qué soy?'",
-				"✦ El conocimiento", "✦ La luz", "✦ La sombra", "✦ El reflejo");
-
-		if (intento == 2) { // "La luz"
-			Narrador.mostrar("✦ Un clic mecánico suena. La caja reconoce tu respuesta.");
-			Narrador.mostrar("✦ Dentro hay un pequeño dispositivo: un mapa holográfico del terreno de los Juegos.");
-			Narrador.mostrar("✦ Tiene puntos marcados, zonas de recursos y refugios. Lo escondes con cuidado.");
-			jugador.getInventario().añadirObjeto("Mapa holográfico del Capitolio");
-			jugador.añadirPuntos(25);
-		} else {
-			Narrador.mostrar("✦ La caja se bloquea con un sonido seco.");
-			Narrador.mostrar("✦ Aparece un mensaje en la pantalla: 'Mala suerte, tributo. El Capitolio observa.'");
-			Narrador.mostrar("✦ Te alejas del compartimento con una sensación amarga. Quizás no era tu noche.");
-			jugador.añadirPuntos(5); // Recompensa mínima por intentarlo
-		}
+		Cpuzzle.acertijoDelMapa(jugador);
 
 		// PARTE 5: Noche después del puzzle
 
@@ -524,7 +519,20 @@ public class Cjuego {
 		Narrador.mostrar("✦ Frente a ti, en el centro del claro, está la Cornucopia: armas, mochilas, trampas... y muerte.");
 		Narrador.mostrar("✦ El cronómetro comienza a descender. 10... 9... 8...");
 
-		// Aquí empieza el primer evento de la arena: correr, esconderse, luchar, etc.
+		juego.historiaKatniss.controlador.GestorCombates gestor = new juego.historiaKatniss.controlador.GestorCombates(jugador, this::capitulo5FaseFinal);
+		gestor.iniciarCombatesEnArena();
+
+		if (!gestor.juegoSigueActivo()) return;
+	}
+
+
+
+
+
+	public void capitulo5FaseFinal() {
+		Narrador.titulo("Capítulo 5: La Fase Final");
+		Narrador.mostrar("✦ Quedan 4 tributos... la batalla final se avecina.");
+		// Continuar historia aquí...
 	}
 
 

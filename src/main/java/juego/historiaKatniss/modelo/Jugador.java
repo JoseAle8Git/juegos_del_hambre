@@ -9,6 +9,7 @@ public class Jugador extends Personaje {
 	private int relacionPeeta = 0;
 	private boolean amorFingido;
 	private ClaseCombate claseCombate;
+	private MapaJuego mapaJuego;
 
 	public Jugador(String nombre) {
 		super(nombre, 100);
@@ -70,5 +71,15 @@ public class Jugador extends Personaje {
 			return claseCombate.getEscudoPorcentaje();
 		}
 	}
+	public void setMapaJuego(MapaJuego mapaJuego) {
+		this.mapaJuego = mapaJuego;
+	}
 
+	public MapaJuego getMapaJuego() {
+		return mapaJuego;
+	}
+
+	public boolean tieneMapaJuego() {
+		return mapaJuego != null;
+	}
 }
