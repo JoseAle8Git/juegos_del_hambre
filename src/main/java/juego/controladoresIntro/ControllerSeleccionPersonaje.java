@@ -46,8 +46,7 @@ public class ControllerSeleccionPersonaje {
         }).start();
     }
 
-<<<<<<< HEAD
-=======
+
     @FXML private void iniciarHistoriaPeeta(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/Flashback.fxml"));
@@ -60,5 +59,5 @@ public class ControllerSeleccionPersonaje {
             e.printStackTrace();
         }
     }
->>>>>>> origin/main
+
 }

@@ -22,9 +22,7 @@ public class ControllerFlashback implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        contenedor.setOnMouseClicked(event -> cambiarDeVista());
-
-        PauseTransition delay = new PauseTransition(Duration.seconds(10));
+        PauseTransition delay = new PauseTransition(Duration.seconds(4));
         delay.setOnFinished(event -> cambiarDeVista());
         delay.play();
     }
