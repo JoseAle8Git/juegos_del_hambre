@@ -1,4 +1,4 @@
-package juego.historiaEliot;
+package juego.historiaEliot.mas;
 
 import juego.sistemaCombate.modelo.ClaseCombate;
 import juego.sistemaCombate.modelo.Inventario;
@@ -78,7 +78,7 @@ public class TributoEliot {
         inventarioGeneral.put(nombre, inventarioGeneral.getOrDefault(nombre, 0) + cantidad);
     }
 
-    public Inventario getInventarioComando() {
+    public Inventario getInventarioCombate() {
         return inventarioCombate;
     }
 

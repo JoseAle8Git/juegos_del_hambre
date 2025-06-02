@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import juego.historiaKatniss.controlador.Cjuego;
+import juego.ranking.InsertarRanking;
 
 import java.io.IOException;
 
@@ -16,6 +17,8 @@ public class ControllerSeleccionPersonaje {
 
     @FXML private void iniciarHistoriaEliot(ActionEvent e) {
         try {
+            InsertarRanking ranking = InsertarRanking.crearInstancia();
+            ranking.setPersonaje("Eliot");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap1/historiaEliotCap1-0.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -45,7 +48,6 @@ public class ControllerSeleccionPersonaje {
             juego.iniciarJuego();
         }).start();
     }
-
 
     @FXML private void iniciarHistoriaPeeta(ActionEvent actionEvent) {
         try {

@@ -6,9 +6,9 @@ public class Arquero extends ClaseCombate {
 
     public Arquero() {
         super("Arquero", 100, 0.05);
-        ataques.add(new Ataque("Tiro rápido", 10, 0.85, EfectoEspecial.DOBLE_DANO_50));
-        ataques.add(new Ataque("Lluvia de flechas", 12, 0.80, EfectoEspecial.SANGRADO));
-        ataques.add(new Ataque("Flecha ígnea", 15, 0.80, EfectoEspecial.QUEMADURA));
+        ataques.add(new Ataque("Tiro rápido", 40, 0.85, EfectoEspecial.DOBLE_DANO_50));
+        ataques.add(new Ataque("Lluvia de flechas", 45, 0.80, EfectoEspecial.SANGRADO));
+        ataques.add(new Ataque("Flecha ígnea", 40, 0.80, EfectoEspecial.QUEMADURA));
         ataques.add(new Ataque("Paso ágil", 0, 1.00, EfectoEspecial.AUMENTAR_FALLO_ENEMIGO));
     }
 
