@@ -21,6 +21,9 @@
         <ImageView fitHeight="300" preserveRatio="true">
             <Image url="/images/imagesPeeta/guardiaConCasco.png"/>
         </ImageView>
+        <VBox styleClass="vbox">
             <Label styleClass="texto" text="Guardia: soy un hombre de palabra, como has ganado te ayudaré. En una media hora, hay cambio de guardia en el tren que sale de Panem, y normalmente el guardia sustituto llega unos minutos tarde. Además, en los vagones de atrás solo hay mercancías, por lo que no deberías tener problemas una vez dentro. Recuerda, yo no te he dicho nada."/>
+            <Button text="Continuar" onAction="#continuar"/>
+        </VBox>
     </HBox>
 </StackPane>
