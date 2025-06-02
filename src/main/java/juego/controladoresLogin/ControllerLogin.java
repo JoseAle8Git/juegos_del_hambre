@@ -42,8 +42,8 @@ public class ControllerLogin {
                     try {
                         InsertarRanking ranking = InsertarRanking.crearInstancia();
                         ranking.setNombreUsuario(usuario);
-                        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu/menu.fxml"));
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap6/tributoSam/salvarASam/historiaEliotMapa.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu/menu.fxml"));
+//                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap6/tributoSam/salvarASam/historiaEliotMapa.fxml"));
                         Scene scene = new Scene(loader.load());
                         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                         stage.setScene(scene);
