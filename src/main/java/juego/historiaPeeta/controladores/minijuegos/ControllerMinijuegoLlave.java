@@ -1,4 +1,4 @@
-package juego.historiaPeeta.controladores;
+package juego.historiaPeeta.controladores.minijuegos;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -121,7 +121,7 @@ public class ControllerMinijuegoLlave {
     }
     private void cambiarDeVista() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/FlashbackEleccion.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/FlashbackEleccion.fxml"));
             Parent newRoot = loader.load();
 
             // Obtener el Stage desde cualquier nodo del FXML actual

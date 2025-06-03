@@ -10,11 +10,16 @@
 <?import javafx.scene.image.Image?>
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
+           stylesheets="/css/cssPeeta/diaCosecha.css"
            fx:controller="juego.historiaPeeta.controladores.ControllerDiaCosecha">
     <ImageView>
         <image>
             <Image url="/images/imagesPeeta/diaCosecha.png" requestedHeight="720" requestedWidth="1221"/>
         </image>
     </ImageView>
-
+    <VBox styleClass="vbox">
+        <Label fx:id="titulo"/>
+        <Label fx:id="texto"/>
+        <Button text="Continuar" onAction="#continuar"/>
+    </VBox>
 </StackPane>
