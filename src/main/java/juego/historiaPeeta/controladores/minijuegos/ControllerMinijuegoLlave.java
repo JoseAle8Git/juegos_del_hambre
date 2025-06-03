@@ -24,6 +24,7 @@ public class ControllerMinijuegoLlave {
     private int oportunidades;
     private int taquillaCorrecta;
     private boolean finJuego = false;
+    private boolean llave = false;
 
     @FXML
     private void comenzar(ActionEvent actionEvent) {
@@ -72,6 +73,7 @@ public class ControllerMinijuegoLlave {
                 if (index == taquillaCorrecta) {
 //                    alerta("¡Ganaste!", "Has encontrado la taquilla correcta.");
                     taquillas[taquillaCorrecta].setImage(taquillaLlave);
+                    llave = true;
                     label.setVisible(false);
                     finJuego = true;
                 } else {
@@ -120,8 +122,14 @@ public class ControllerMinijuegoLlave {
         alerta.showAndWait();
     }
     private void cambiarDeVista() {
+        String vista;
+        if (llave) {
+            vista = "/view/historiaPeeta/FlashbackEleccion.fxml";
+        } else{
+            vista = "/view/historiaPeeta/CombateGuardia.fxml";
+        }
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/FlashbackEleccion.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(vista));
             Parent newRoot = loader.load();
 
             // Obtener el Stage desde cualquier nodo del FXML actual
