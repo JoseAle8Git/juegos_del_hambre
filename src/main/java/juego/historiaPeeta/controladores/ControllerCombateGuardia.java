@@ -14,7 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import juego.historiaEliot.controladores.cap2.ControladorCapitulo2;
+import juego.historiaPeeta.mas.Peeta;
 import juego.sistemaCombate.dao.PersonajeDAO;
 import juego.sistemaCombate.logica.Combate;
 import juego.sistemaCombate.logica.CondicionesCombateConstructora;
@@ -23,7 +23,7 @@ import juego.sistemaCombate.modelo.*;
 import java.io.IOException;
 import java.util.List;
 
-public class CombateGuardia {
+public class ControllerCombateGuardia {
     @FXML
     private ImageView imagenJugador;
     @FXML private ImageView imagenEnemigo;
@@ -45,7 +45,15 @@ public class CombateGuardia {
 
     @FXML
     public void initialize() {
-        jugador = (Jugador) new PersonajeDAO().cargarPersonajePorNombre("Peeta");
+        Peeta.crearInstancia();
+        Peeta peeta = Peeta.getInstancia();
+//        jugador = (Jugador) new PersonajeDAO().cargarPersonajePorNombre("Peeta");
+
+        jugador = new Jugador(peeta.getNombre(), peeta.getClase());
+        jugador.setVidaActual(peeta.getVidaActual());
+        jugador.setInventario(peeta.getInventarioCombate());
+
+
         enemigo = (Enemigo) new PersonajeDAO().cargarPersonajePorNombre("Guardia");
         CondicionesCombate condiciones = new CondicionesCombateConstructora().generarAleatorias();
         combate = new Combate(jugador, enemigo, null, condiciones);
@@ -249,30 +257,17 @@ public class CombateGuardia {
     }
 
     private void irASiguienteVista() {
-        ControladorCapitulo2 control = ControladorCapitulo2.obtenerObjeto().getControl();
-        control.setClaro(true);
-        if(control.getClaro() && control.getBosque() && control.getDispensario()) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/controladores/Flashback.fxml"));
-                Parent root = loader.load();
-                Stage stage = (Stage) mensajeCombate.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch(Exception ex) {
-                ex.printStackTrace();
-                mostrarAlerta("Error", "No se pudo mostrar la siguiente vista");
-            }
-        } else {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap2/historiaEliotCap2-eleccionCamino.fxml"));
-                Parent root = loader.load();
-                Stage stage = (Stage) mensajeCombate.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch(Exception ex) {
-                ex.printStackTrace();
-                mostrarAlerta("Error", "No se pudo mostrar la siguiente vista");
-            }
+        Peeta.getInstancia().setVidaActual(jugador.getVidaActual());
+        Peeta.getInstancia().setInventarioCombate(jugador.getInventario());
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/CombateGuardia.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) mensajeCombate.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch(Exception ex) {
+            ex.printStackTrace();
+            mostrarAlerta("Error", "No se pudo mostrar la siguiente vista");
         }
     }
     private void mostrarAlerta(String titulo, String mensaje) {
