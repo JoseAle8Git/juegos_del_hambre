@@ -15,14 +15,13 @@
             fx:id="contenedor">
     <ImageView>
         <image>
-<!--            <Image url="/images/flashback.png" requestedHeight="720" preserveRatio="true"/>-->
             <Image url="/images/imagesPeeta/flashback.png" requestedHeight="720" requestedWidth="1221"/>
         </image>
     </ImageView>
     <VBox fx:id="caja"
           maxWidth="1000"
           maxHeight="200">
-        <Label text="HACE 5 AÑOS" styleClass="titulo"/>
-        <Label text="Tienes 11 años, es un día lluvioso y decides salir a la calle a tomar un respiro. Te encuentras a una chica rebuscando en la basura frente a ti. La chica parece hambrienta. Sientes compasión por ella, y se te ocurre la idea de darle pan para que coma algo. Pero te entran dudas, por un lado sabes que eso es hacer lo correcto, pero no quieres arriesgarte a que tu madre te descubra y te castigue." styleClass="texto" wrapText="true"/>
+        <Label fx:id="titulo"/>
+        <Label fx:id="texto" wrapText="true"/>
     </VBox>
 </StackPane>

@@ -1,0 +1,103 @@
+#panelMenuSalvarASam {
+    -fx-background-color: linear-gradient(#2107, #0127);
+}
+
+.btnAbrirMenu {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700; /* dorado */
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-background-radius: 10;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.btnAbrirMenu:hover {
+    -fx-background-color: linear-gradient(#660000, #1A0000);
+    -fx-text-fill: #FFFFFF;
+}
+
+.btnUsarVenda {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700; /* dorado */
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-background-radius: 10;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.btnUsarVenda:hover {
+    -fx-background-color: linear-gradient(#660000, #1A0000);
+    -fx-text-fill: #FFFFFF;
+}
+
+.btnMoverseRightLeft {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700; /* dorado */
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-background-radius: 10;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 10px 15px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.btnMoverseRightLeft:hover {
+    -fx-background-color: linear-gradient(#660000, #1A0000);
+    -fx-text-fill: #FFFFFF;
+}
+
+.btnMoverseUpDown {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700; /* dorado */
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-background-radius: 10;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 10px 18px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.btnMoverseUpDown:hover {
+    -fx-background-color: linear-gradient(#660000, #1A0000);
+    -fx-text-fill: #FFFFFF;
+}
+
+.label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #fff;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.salida {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #fff;
+}
+
+.mapa {
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+    -fx-border-radius: 10;
+}
+
+.vida {
+    -fx-font-size: 10px;
+    -fx-text-fill: #fff;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}

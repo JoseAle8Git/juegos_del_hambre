@@ -10,7 +10,7 @@
 <?import javafx.scene.image.Image?>
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
-           fx:controller="juego.historiaPeeta.controladores.ControllerCaraOCruz"
+           fx:controller="juego.historiaPeeta.controladores.minijuegos.ControllerCaraOCruz"
            stylesheets="/css/cssPeeta/caraOCruz.css">
     <ImageView>
         <image>
@@ -18,7 +18,7 @@
         </image>
     </ImageView>
     <VBox fx:id="vbox">
-        <Label text="Elige cara o cruz"/>
+        <Label fx:id="texto"/>
         <VBox styleClass="hbox">
             <HBox styleClass="subcaja">
                 <ImageView fitHeight="200" preserveRatio="true">

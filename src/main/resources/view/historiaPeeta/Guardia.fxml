@@ -22,8 +22,8 @@
             <Image url="/images/imagesPeeta/guardiaConCasco.png"/>
         </ImageView>
         <VBox styleClass="vbox">
-            <Label styleClass="texto" text="Te diriges hacia la fila de inscripción, cuando te cruzas con guardia de seguridad. El guardia está jugando con una moneda. Por lo que parece está teniendo un día bastante aburrido. Nota que lo estás observando, y te hace una pregunta:" />
-            <Label styleClass="texto" text="Chico, ¿quieres jugar a un juego?"/>
+            <Label fx:id="texto1" styleClass="texto"/>
+            <Label fx:id="texto2" styleClass="texto"/>
             <HBox styleClass="hbox">
                 <Button text="Si" onAction="#juegoGuardia"/>
                 <Button text="No" onAction="#saltarJuegoGuardia"/>
