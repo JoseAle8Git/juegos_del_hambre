@@ -124,7 +124,7 @@ public class ControllerMinijuegoLlave {
     private void cambiarDeVista() {
         String vista;
         if (llave) {
-            vista = "/view/historiaPeeta/FlashbackEleccion.fxml";
+            vista = "/view/historiaPeeta/FinalTren.fxml";
         } else{
             vista = "/view/historiaPeeta/CombateGuardia.fxml";
         }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="juego.historiaPeeta.controladores.ControllerInicioJuegos"
+           stylesheets="/css/cssPeeta/inicioJuegos.css">
+    <ImageView>
+        <Image url="/images/imagesPeeta/juegos.png" requestedHeight="720" requestedWidth="1221"/>
+    </ImageView>
+    <VBox>
+        <Label fx:id="texto1"/>
+        <Label fx:id="texto2"/>
+        <HBox>
+            <Button fx:id="boton1" text="Al centro de la arena" onAction="#arena"/>
+            <Button fx:id="boton2" text="Al bosque" onAction="#bosque"/>
+            <Button fx:id="boton3" text="A la cueva" onAction="#cueva"/>
+        </HBox>
+    </VBox>
+</StackPane>

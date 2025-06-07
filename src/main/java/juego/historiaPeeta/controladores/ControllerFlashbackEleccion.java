@@ -18,23 +18,33 @@ import java.util.ResourceBundle;
 
 
 public class ControllerFlashbackEleccion implements Initializable {
+    public static boolean ayudarKatniss = false;
     @FXML private HBox botones;
     @FXML private Button boton1;
     @FXML private Button boton2;
     DialogoPeetaDAO dao = new DialogoPeetaDAO();
     String textoAlerta = "";
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        String texto1 = dao.obtenerTextoPeeta(4);
+        String texto2 = dao.obtenerTextoPeeta(5);
+        boton1.setText(texto1);
+        boton2.setText(texto2);
+    }
+
     @FXML private void noAyudar(ActionEvent event) {
         textoAlerta = dao.obtenerTextoPeeta(6);
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("Decisión");
         alerta.setHeaderText(null);
-        alerta.setContentText("Decides no ayudar a la chica, Katniss recordará tu elección");
+        alerta.setContentText(textoAlerta);
         alerta.showAndWait();
         cambiarDeVista();
     }
 
     @FXML private void ayudar(ActionEvent event) {
+        ayudarKatniss = true;
         textoAlerta = dao.obtenerTextoPeeta(7);
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("Decisión");
@@ -55,14 +65,6 @@ public class ControllerFlashbackEleccion implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        String texto1 = dao.obtenerTextoPeeta(4);
-        String texto2 = dao.obtenerTextoPeeta(5);
-        boton1.setText(texto1);
-        boton2.setText(texto2);
     }
 }
 

@@ -1,4 +1,4 @@
-package juego.historiaPeeta.controladores;
+package juego.historiaPeeta.controladores.combates;
 
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
@@ -24,8 +24,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class ControllerCombateGuardia {
-    @FXML
-    private ImageView imagenJugador;
+    @FXML private ImageView imagenJugador;
     @FXML private ImageView imagenEnemigo;
     @FXML private Label nombreJugador;
     @FXML private Label nombreEnemigo;

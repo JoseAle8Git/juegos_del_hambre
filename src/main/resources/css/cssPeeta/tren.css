@@ -1,0 +1,10 @@
+#texto {
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+    -fx-font-size: 20px;
+    -fx-wrap-text: true;
+    -fx-max-width: 900px;
+    -fx-padding: 50px 0 0 0;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}

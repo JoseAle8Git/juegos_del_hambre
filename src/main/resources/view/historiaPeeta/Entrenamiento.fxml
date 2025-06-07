@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="juego.historiaPeeta.controladores.minijuegos.ControllerEntrenamiento"
+            fx:id="rootPane" stylesheets="/css/cssPeeta/entrenamiento.css"
+            prefWidth="1221" prefHeight="720">
+    <ImageView>
+        <Image url="/images/imagesPeeta/entrenamiento.png" requestedWidth="1221" requestedHeight="720"/>
+    </ImageView>
+    <center>
+        <Pane fx:id="pane"/>
+    </center>
+
+    <bottom>
+        <StackPane>
+            <Label fx:id="labelPuntuacion"
+                   alignment="CENTER"
+                   style="-fx-text-fill: white; -fx-background-color: linear-gradient(#4A0909, #000000);"
+                   prefHeight="50"
+                   prefWidth="300"/>
+        </StackPane>
+    </bottom>
+    <top>
+        <StackPane>
+            <Button fx:id="startButton"
+                    text="Comenzar"
+                    onAction="#comenzar"/>
+        </StackPane>
+    </top>
+</BorderPane>

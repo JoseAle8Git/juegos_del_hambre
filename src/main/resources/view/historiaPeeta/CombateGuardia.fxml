@@ -10,7 +10,7 @@
 <?import javafx.scene.image.Image?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="juego.historiaPeeta.controladores.ControllerCombateGuardia"
+            fx:controller="juego.historiaPeeta.controladores.combates.ControllerCombateGuardia"
             stylesheets="/css/cssPeeta/combateGuardia.css">
     <ImageView>
         <Image url="/images/imagesPeeta/metro.png" requestedWidth="1221" requestedHeight="720"/>
