@@ -22,6 +22,7 @@ public abstract class Personaje {
         return vida;
     }
 
+
     public String getNombre() {
         return nombre;
     }
