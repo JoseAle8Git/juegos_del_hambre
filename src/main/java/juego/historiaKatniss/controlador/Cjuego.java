@@ -19,6 +19,7 @@ public class Cjuego {
 
 		juegoActivo = true;
 		capitulo4InicioArena();
+		desarrollarArenaYCombates();
 		capitulo1Prologo();
 		if (!juegoActivo)
 			return;
@@ -519,22 +520,102 @@ public class Cjuego {
 		Narrador.mostrar("✦ Frente a ti, en el centro del claro, está la Cornucopia: armas, mochilas, trampas... y muerte.");
 		Narrador.mostrar("✦ El cronómetro comienza a descender. 10... 9... 8...");
 
-		juego.historiaKatniss.controlador.GestorCombates gestor = new juego.historiaKatniss.controlador.GestorCombates(jugador, this::capitulo5FaseFinal);
-		gestor.iniciarCombatesEnArena();
 
-		if (!gestor.juegoSigueActivo()) return;
+
+
+}
+	public void desarrollarArenaYCombates() {
+		MapaJuego mapa = jugador.getMapaJuego();
+		if (mapa == null) {
+			mapa = new MapaJuego(false); // si no tenía mapa del puzzle
+			jugador.setMapaJuego(mapa);
+		}
+
+		final int TOTAL_TRIBUTOS_INICIALES = 24;
+		int tributosRestantes = TOTAL_TRIBUTOS_INICIALES - 1; // menos el jugador
+		int combatesGanados = 0;
+
+		while (tributosRestantes > 4 && combatesGanados < 4) {
+			Narrador.separador();
+			mapa.mostrarZonasDisponibles();
+			Zona[] zonasEnum = Zona.values();
+			String[] zonas = new String[zonasEnum.length];
+			for (int i = 0; i < zonasEnum.length; i++) {
+				zonas[i] = zonasEnum[i].name();
+			}
+			int opcion = MenuConsola.menuOpciones("¿A qué zona deseas ir?", zonas);
+			Zona zonaElegida = Zona.valueOf(zonas[opcion - 1]);
+
+			Narrador.mostrar("Te mueves hacia la zona: " + zonaElegida);
+			Narrador.mostrar("Un tributo enemigo aparece, ¡prepárate!");
+
+			int vidaEnemigo = 100;
+			int curasEnemigo = 2;
+			int curasJugador = 3;
+			int vidaMaxJugador = jugador.getClaseCombate().getVidaMaxima();
+
+			while (jugador.getVida() > 0 && vidaEnemigo > 0) {
+				// TURNO DEL JUGADOR
+				Narrador.separador();
+				String[] acciones = { "Atacar", "Curarse (" + curasJugador + " restantes)" };
+				int accion = MenuConsola.menuOpciones("Tu turno. ¿Qué quieres hacer?", acciones);
+
+				if (accion == 1) {
+					int danoJugador = new Random().nextInt(16) + 10; // 10-25
+					vidaEnemigo -= danoJugador;
+					Narrador.mostrar("✦ Has atacado y causado " + danoJugador + " de daño. Vida del enemigo: " + Math.max(0, vidaEnemigo));
+				} else if (accion == 2) {
+					if (curasJugador > 0 && jugador.getVida() < vidaMaxJugador) {
+						int cura = new Random().nextInt(20) + 10;
+						jugador.curar(cura);
+						curasJugador--;
+						Narrador.mostrar("✦ Te has curado. Vida actual: " + jugador.getVida());
+					} else {
+						Narrador.mostrar("✦ No puedes curarte ahora.");
+					}
+
+				}
+
+				// TURNO DEL ENEMIGO
+				if (vidaEnemigo > 0) {
+					if (curasEnemigo > 0 && vidaEnemigo < 60 && Math.random() < 0.5) {
+						int cura = new Random().nextInt(15) + 10;
+						vidaEnemigo = Math.min(100, vidaEnemigo + cura);
+						curasEnemigo--;
+						Narrador.mostrar("✦ El enemigo se ha curado. Vida actual: " + vidaEnemigo);
+					} else {
+						int danoEnemigo = new Random().nextInt(11) + 5; //
+						int escudoBloqueado = jugador.getClaseCombate().calcularEscudo(danoEnemigo);
+						int danoFinal = danoEnemigo - escudoBloqueado;
+
+						if (danoFinal > 0) {
+							jugador.recibirDaño(danoFinal);
+							Narrador.mostrar("✦ El enemigo te golpea con " + danoFinal + " de daño. Vida actual: " + jugador.getVida());
+						} else {
+							Narrador.mostrar("✦ Bloqueaste completamente el ataque enemigo.");
+						}
+					}
+				}
+			}
+
+			if (jugador.getVida() <= 0) {
+				Narrador.mostrar("Has sido derrotado. El juego ha terminado.");
+				juegoActivo = false;
+				return;
+			} else {
+				combatesGanados++;
+				jugador.añadirPuntos(20);
+				Narrador.mostrar("✦ ¡Has ganado el combate #" + combatesGanados + "!");
+				int eliminados = new Random().nextInt(3) + 1;
+				tributosRestantes = Math.max(4, tributosRestantes - eliminados);
+				Narrador.mostrar("✦ Tributos restantes: " + tributosRestantes);
+			}
+		}
+
+		Narrador.separador();
+		Narrador.mostrar("✦ Has sobrevivido. Solo quedan 4 tributos, incluido Peeta.");
+
 	}
-
-
-
-
-
-	public void capitulo5FaseFinal() {
-		Narrador.titulo("Capítulo 5: La Fase Final");
-		Narrador.mostrar("✦ Quedan 4 tributos... la batalla final se avecina.");
-		// Continuar historia aquí...
-	}
-
 
 
 }
