@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="juego.historiaEliot.controladores.cap6.tributoSam.salvarASam.ControllerSalaInformacion"
+           prefHeight="720" prefWidth="1221"
+            stylesheets="/css/salaInformacion.css">
+
+    <!-- Botón de Reglas -->
+    <Button fx:id="btnReglas" text="Reglas" layoutX="20" layoutY="20" />
+
+    <!-- Botón de Salir -->
+    <Button fx:id="btnSalir" text="Salir de la sala" AnchorPane.topAnchor="20" AnchorPane.rightAnchor="20" onAction="#salir" />
+
+    <!-- Panel de Reglas -->
+    <VBox fx:id="panelReglas" alignment="CENTER" layoutX="360" layoutY="160" spacing="15"
+          prefWidth="500" prefHeight="300" visible="false" styleClass="reglas-panel">
+        <Label text="Instrucciones" styleClass="titulo" />
+        <Label wrapText="true" styleClass="texto" text="Activa la combinación correcta de interruptores para hackear el sistema. Solo una combinación desbloquea la contraseña. Tienes pistas con cada intento."/>
+        <Button fx:id="btnCerrarReglas" text="Cerrar" />
+    </VBox>
+
+    <!-- Interruptores -->
+    <HBox AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="200" spacing="20" alignment="CENTER">
+        <ToggleButton fx:id="switch1" text="" styleClass="interruptor" />
+        <ToggleButton fx:id="switch2" text="" styleClass="interruptor" />
+        <ToggleButton fx:id="switch3" text="" styleClass="interruptor" />
+        <ToggleButton fx:id="switch4" text="" styleClass="interruptor" />
+        <ToggleButton fx:id="switch5" text="" styleClass="interruptor" />
+        <ToggleButton fx:id="switch6" text="" styleClass="interruptor" />
+        <ToggleButton fx:id="switch7" text="" styleClass="interruptor" />
+        <ToggleButton fx:id="switch8" text="" styleClass="interruptor" />
+    </HBox>
+
+    <!-- Botón de comprobar combinación -->
+    <Button fx:id="btnComprobar" text="Probar combinación" AnchorPane.leftAnchor="340" AnchorPane.bottomAnchor="80" AnchorPane.rightAnchor="340" />
+
+    <!-- Mensaje de resultado -->
+    <Label fx:id="lblResultado" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20" alignment="CENTER" text="" styleClass="resultado" />
+
+    <!-- Contraseña revelada -->
+    <Label fx:id="lblPassword" AnchorPane.rightAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.bottomAnchor="450" alignment="CENTER" text="" styleClass="password-revelada" visible="false" />
+
+</AnchorPane>

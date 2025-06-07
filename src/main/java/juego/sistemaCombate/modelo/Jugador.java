@@ -73,4 +73,8 @@ public class Jugador extends Personaje {
     public void setInventario(Inventario inventario) {
         this.inventario = inventario;
     }
+
+    public void setVidaActual(int vidaActual) {
+        this.vidaActual = vidaActual;
+    }
 }

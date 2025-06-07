@@ -11,13 +11,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import juego.historiaEliot.TributoEliot;
+import juego.historiaEliot.mas.TributoEliot;
 import juego.historiaEliot.mas.DialogoDAO;
-import juego.sistemaCombate.modelo.Guerrero;
 import juego.sistemaCombate.modelo.Normal;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ControllerHistoriaEliotCap4Tributo2_7normalSiFinal {
 

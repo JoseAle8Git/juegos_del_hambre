@@ -18,7 +18,7 @@
         </image>
     </ImageView>
     <HBox fx:id="botones">
-        <Button text="Ayudar a la chica" onAction="#ayudar"/>
-        <Button text="No ayudar a la chica" onAction="#noAyudar"/>
+        <Button fx:id="boton1" onAction="#ayudar"/>
+        <Button fx:id="boton2" onAction="#noAyudar"/>
     </HBox>
 </StackPane>

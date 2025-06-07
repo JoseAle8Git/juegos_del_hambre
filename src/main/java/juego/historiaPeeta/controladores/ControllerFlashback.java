@@ -6,10 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import juego.historiaPeeta.mas.DialogoPeetaDAO;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,12 +21,17 @@ public class ControllerFlashback implements Initializable {
 
     @FXML private VBox caja;
     @FXML private StackPane contenedor;
+    @FXML private Label titulo;
+    @FXML private Label texto;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        contenedor.setOnMouseClicked(event -> cambiarDeVista());
-
-        PauseTransition delay = new PauseTransition(Duration.seconds(10));
+        DialogoPeetaDAO dao = new DialogoPeetaDAO();
+        String texto1 = dao.obtenerTextoPeeta(2);
+        String texto2 = dao.obtenerTextoPeeta(3);
+        titulo.setText(texto1);
+        texto.setText(texto2);
+        PauseTransition delay = new PauseTransition(Duration.seconds(4));
         delay.setOnFinished(event -> cambiarDeVista());
         delay.play();
     }

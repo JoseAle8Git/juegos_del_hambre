@@ -52,8 +52,6 @@
                 style="-fx-background-color: rgba(0, 0, 0, 0.8); -fx-border-color: white; -fx-border-width: 2px;">
         <VBox alignment="CENTER" spacing="15" layoutX="35" layoutY="20">
             <Button fx:id="btnUsarVendas" text="Usar Vendas" onAction="#usarVendas" minWidth="350"/>
-            <Button fx:id="btnUsarCarne" text="Usar Carne" onAction="#usarCarne" minWidth="350"/>
-            <Button fx:id="btnUsarHojas" text="Usar Hojas" onAction="#usarHojas" minWidth="350"/>
             <Button text="Cerrar" onAction="#cerrarInventario" minWidth="350"/>
         </VBox>
     </AnchorPane>

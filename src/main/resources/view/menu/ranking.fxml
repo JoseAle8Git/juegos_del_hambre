@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.controladoresMenu.ControllerRanking"
+            prefHeight="720" prefWidth="1221"
+            fx:id="panelSP"
+            stylesheets="/css/ranking.css">
+
+    <VBox spacing="30" alignment="CENTER">
+        <Label text="Top 10 Ranking"
+        styleClass="label-titulo"/>
+
+        <TableView fx:id="tablaRanking"
+        prefHeight="307"
+        prefWidth="450"
+        fixedCellSize="28"
+        maxHeight="500"
+        maxWidth="450">
+            <columns>
+                <TableColumn fx:id="colPosicion" text="Posición"/>
+                <TableColumn fx:id="colUsuario" text="Usuario" />
+                <TableColumn fx:id="colPersonaje" text="Personaje" />
+                <TableColumn fx:id="colFinal" text="Final" />
+                <TableColumn fx:id="colCombates" text="Combates Ganados" />
+                <TableColumn fx:id="colPuntos" text="Puntos" />
+            </columns>
+        </TableView>
+
+        <Button text="Volver al menú principal"
+                onAction="#volverAlMenu"/>
+    </VBox>
+
+</StackPane>
