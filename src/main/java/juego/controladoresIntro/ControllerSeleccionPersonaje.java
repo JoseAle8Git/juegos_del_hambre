@@ -51,8 +51,8 @@ public class ControllerSeleccionPersonaje {
 
     @FXML private void iniciarHistoriaPeeta(ActionEvent actionEvent) {
         try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/PeetaInicio.fxml"));
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/CombateGuardia.fxml"));
+//          FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/PeetaInicio.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/EleccionClase.fxml"));
             Parent newRoot = loader.load();
 
             // Obtener el Stage desde cualquier nodo del FXML actual

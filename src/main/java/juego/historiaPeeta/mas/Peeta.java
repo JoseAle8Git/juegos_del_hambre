@@ -1,6 +1,5 @@
 package juego.historiaPeeta.mas;
 
-import juego.historiaEliot.mas.TributoSam;
 import juego.sistemaCombate.modelo.*;
 
 import java.util.HashMap;
@@ -17,8 +16,10 @@ public class Peeta {
 
     private Inventario inventarioCombate = new Inventario();
     private Map<String, Integer> inventarioGeneral = new HashMap<>();
+    private boolean[] zonasVisitadas;
 
     private Peeta() {
+        boolean[] zonasVisitadas = {false, false, false};
         this.nombre = "Peeta";
         this.clase = new Normal();
         this.vidaActual = clase.getVidaMaxima();
@@ -28,17 +29,18 @@ public class Peeta {
             inventarioGeneral.put(obj, 0);
         }
 
+        this.zonasVisitadas = zonasVisitadas;
     }
 
-    private Peeta(ClaseCombate clase) {
-        this.nombre = "Peeta";
-        this.clase = clase;
-        this.vidaActual = clase.getVidaMaxima();
-
-        for(String obj : new String[] {"Carne", "Vendas", "Hojas",}) {
-            inventarioGeneral.put(obj, 0);
-        }
-    }
+//    private Peeta(ClaseCombate clase) {
+//        this.nombre = "Peeta";
+//        this.clase = clase;
+//        this.vidaActual = clase.getVidaMaxima();
+//
+//        for(String obj : new String[] {"Carne", "Vendas", "Hojas",}) {
+//            inventarioGeneral.put(obj, 0);
+//        }
+//    }
     public static void crearInstancia() {
         if(instancia == null) instancia = new Peeta();
     }
@@ -54,14 +56,15 @@ public class Peeta {
         return clase;
     }
 
-    public void setClase(String clase) {
-        switch (clase) {
+    public void setClase(String nombreClase) {
+        switch (nombreClase) {
             case ("soldado") -> this.clase = new Soldado();
             case ("guerrero") -> this.clase = new Guerrero();
             case ("arquero") -> this.clase = new Arquero();
             case ("cazador") -> this.clase = new Cazador();
             case ("asesino") -> this.clase = new Asesino();
         }
+        this.vidaActual = clase.getVidaMaxima();
     }
 
     public int getVidaActual() {
@@ -114,5 +117,13 @@ public class Peeta {
 
     public void setInventarioCombate(Inventario inventario) {
         this.inventarioCombate = inventario;
+    }
+
+    public boolean[] getZonasVisitadas() {
+        return zonasVisitadas;
+    }
+
+    public void zonaVisitada(int num) {
+        getZonasVisitadas()[num] = true;
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="juego.historiaPeeta.controladores.ControllerCaraOCruzVictoriaEleccion"
+           stylesheets="/css/cssPeeta/caraOCruzVictoriaEleccion.css">
+    <ImageView styleClass="imagen">
+            <Image url="/images/imagesPeeta/distrito12.png" requestedHeight="720" requestedWidth="1221"/>
+    </ImageView>
+    <VBox styleClass="caja">
+        <Label fx:id="texto"/>
+        <HBox styleClass="subcaja">
+            <Button fx:id="boton1" onAction="#confiar"/>
+            <Button fx:id="boton2" onAction="#desconfiar"/>
+        </HBox>
+    </VBox>
+</StackPane>

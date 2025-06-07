@@ -1,0 +1,33 @@
+#texto {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+    -fx-text-alignment: center;
+}
+.caja {
+    -fx-alignment: center;
+    -fx-spacing: 20;
+}
+.subcaja {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+}
+.button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700; /* dorado */
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-background-radius: 10;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-background-color: linear-gradient(#660000, #1A0000);
+    -fx-text-fill: #FFFFFF;
+}

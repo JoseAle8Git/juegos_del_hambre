@@ -40,7 +40,7 @@ public class ControllerGuardia implements Initializable {
     @FXML private void saltarJuegoGuardia(ActionEvent e) {
         textoAlerta = dao.obtenerTextoPeeta(13);
         alerta("Elección", textoAlerta);
-        cambiarDeVista("/view/historiaPeeta/DiaCosecha.fxml");
+        cambiarDeVista("/view/historiaPeeta/EleccionTributo1.fxml");
     }
     private void cambiarDeVista(String vista) {
         try {
