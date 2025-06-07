@@ -82,4 +82,15 @@ public class Jugador extends Personaje {
 	public boolean tieneMapaJuego() {
 		return mapaJuego != null;
 	}
+
+	public void setVida(int nuevaVida) {
+		int vidaMaxima = (claseCombate != null) ? claseCombate.getVidaMaxima() : 100;
+		this.vida = Math.min(nuevaVida, vidaMaxima);
+	}
+
+
+	public void curar(int cantidad) {
+		setVida(this.vida + cantidad);
+	}
+
 }
