@@ -24,10 +24,13 @@ import javafx.util.Duration;
 import juego.ranking.InsertarRanking;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
-public class ControllerEntrenamiento {
-    @FXML private BorderPane rootPane;
+public class ControllerMinijuegoCaza {
+    @FXML
+    private BorderPane rootPane;
     @FXML private Pane pane;
     @FXML private Label labelPuntuacion;
     @FXML private Button startButton;
@@ -36,7 +39,7 @@ public class ControllerEntrenamiento {
 
     private static final int ALTO = 720;
     private static final int ANCHO = 1221;
-    private static final int DELAY = 950;
+    private static final int DELAY = 1000;
     private static final int MAX = 10;
 
     private Timeline timeline;
@@ -44,13 +47,13 @@ public class ControllerEntrenamiento {
     private int imageCounter = 0;
     private int animationCounter = 0;
     private int numClicks = 0;
-    private String ruta = "/images/imagesPeeta/diana.png";
+    private String rutaImagen = "/images/imagesPeeta/ciervo.png";
 
     @FXML
     public void initialize() {
         rootPane.setCursor(Cursor.CROSSHAIR);
         startButton.setAlignment(Pos.CENTER);
-        labelPuntuacion.setText("Acertados: 0");
+        labelPuntuacion.setText("Cazados: 0");
     }
 
     @FXML
@@ -62,7 +65,7 @@ public class ControllerEntrenamiento {
         numClicks = 0;
         imagenes.clear();
         pane.getChildren().clear();
-        labelPuntuacion.setText("Acertados: 0");
+        labelPuntuacion.setText("Cazados: 0");
 
         timeline = new Timeline(new KeyFrame(Duration.millis(DELAY), e -> {
             if (imageCounter < MAX) {
@@ -77,15 +80,15 @@ public class ControllerEntrenamiento {
     }
 
     private void spawnImagen() {
-        Image image = new Image(getClass().getResourceAsStream(ruta));
+        Image image = new Image(getClass().getResourceAsStream(rutaImagen));
         ImageView view = new ImageView(image);
 
         int size = new Random().nextInt(100) + 90;
         view.setFitWidth(size);
         view.setFitHeight(size);
 
-        view.setLayoutY(0);
-        view.setLayoutX(Math.random() * (ANCHO - size));
+        view.setLayoutX(0);
+        view.setLayoutY(Math.random() * (ALTO - size));
 
         pane.getChildren().add(view);
         imagenes.add(view);
@@ -94,15 +97,15 @@ public class ControllerEntrenamiento {
             imagenes.remove(view);
             pane.getChildren().remove(view);
             numClicks++;
-            labelPuntuacion.setText("Acertados: " + numClicks);
+            labelPuntuacion.setText("Cazados: " + numClicks);
 
             if (animationCounter == MAX - 1) {
                 alerta();
             }
         });
 
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(2), view);
-        transition.setByY(ALTO);
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(4), view);
+        transition.setByX(ANCHO);
         transition.setOnFinished(e -> {
             imagenes.remove(view);
             pane.getChildren().remove(view);
@@ -124,7 +127,7 @@ public class ControllerEntrenamiento {
             alert.setHeaderText(null);
             if (numClicks > 5) {
                 InsertarRanking ranking = InsertarRanking.crearInstancia();
-                ranking.setPuntos(20);
+                ranking.setPuntos(10);
                 alert.setContentText("¡Has ganado!");
             } else {
                 alert.setContentText("Has perdido.");
@@ -136,7 +139,7 @@ public class ControllerEntrenamiento {
 
     private void cambiarVista() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/EleccionClase.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/InicioJuegos.fxml"));
             Parent newRoot = loader.load();
 
             // Obtener el Stage desde cualquier nodo del FXML actual
@@ -147,4 +150,3 @@ public class ControllerEntrenamiento {
         }
     }
 }
-

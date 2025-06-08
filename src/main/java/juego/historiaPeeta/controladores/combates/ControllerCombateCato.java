@@ -26,8 +26,9 @@ import juego.sistemaCombate.modelo.*;
 import java.io.IOException;
 import java.util.List;
 
-public class ControllerCombateGuardia {
-    @FXML private ImageView imagenJugador;
+public class ControllerCombateCato {
+    @FXML
+    private ImageView imagenJugador;
     @FXML private ImageView imagenEnemigo;
     @FXML private Label nombreJugador;
     @FXML private Label nombreEnemigo;
@@ -47,7 +48,6 @@ public class ControllerCombateGuardia {
 
     @FXML
     public void initialize() {
-        Peeta.crearInstancia();
         Peeta peeta = Peeta.getInstancia();
 //        jugador = (Jugador) new PersonajeDAO().cargarPersonajePorNombre("Peeta");
 
@@ -56,7 +56,7 @@ public class ControllerCombateGuardia {
         jugador.setInventario(peeta.getInventarioCombate());
 
 
-        enemigo = (Enemigo) new PersonajeDAO().cargarPersonajePorNombre("Guardia");
+        enemigo = (Enemigo) new PersonajeDAO().cargarPersonajePorNombre("Cato");
         CondicionesCombate condiciones = new CondicionesCombateConstructora().generarAleatorias();
         combate = new Combate(jugador, enemigo, null, condiciones);
 
@@ -137,6 +137,7 @@ public class ControllerCombateGuardia {
         actualizarVida();
 
         if (!enemigo.estaVivo()) {
+            Peeta.getInstancia().getEnemigos().eliminarEnemigo(enemigo);
             mostrarResultado("¡Has ganado el combate!");
             try {
 
@@ -247,15 +248,22 @@ public class ControllerCombateGuardia {
 
         alert.show();
     }
+
     private void finalMuerte() {
         cambiarVista("/view/historiaPeeta/controladores/FinalMuerte.fxml");
     }
+
     private void irASiguienteVista() {
         InsertarRanking ranking = InsertarRanking.crearInstancia();
         ranking.setPuntos(30);
         Peeta.getInstancia().setVidaActual(jugador.getVidaActual());
         Peeta.getInstancia().setInventarioCombate(jugador.getInventario());
-        cambiarVista("/view/historiaPeeta/FinalTren.fxml");
+        if (ControllerFlashbackEleccion.ayudarKatniss) {
+            cambiarVista("/view/historiaPeeta/EleccionKatniss.fxml");
+        } else {
+            cambiarVista("/view/historiaPeeta/FinalKatniss.fxml");
+        }
+
     }
     private void cambiarVista(String vista) {
         try {
@@ -266,6 +274,14 @@ public class ControllerCombateGuardia {
             stage.show();
         } catch(Exception ex) {
             ex.printStackTrace();
+            mostrarAlerta("Error", "No se pudo mostrar la siguiente vista");
         }
+    }
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
     }
 }

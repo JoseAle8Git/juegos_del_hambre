@@ -10,7 +10,7 @@
 <?import javafx.scene.image.Image?>
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
-           fx:controller="juego.historiaPeeta.controladores.ControllerFinalTren"
+           fx:controller="juego.historiaPeeta.controladores.finales.ControllerFinalTren"
            stylesheets="/css/cssPeeta/finalTren.css">
     <ImageView>
         <Image url="/images/imagesPeeta/vagon.png" requestedHeight="720" requestedWidth="1221"/>

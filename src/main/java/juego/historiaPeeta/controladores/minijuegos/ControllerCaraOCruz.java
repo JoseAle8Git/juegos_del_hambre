@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import juego.historiaPeeta.mas.DialogoPeetaDAO;
+import juego.ranking.InsertarRanking;
 
 import java.io.IOException;
 import java.net.URL;
@@ -71,6 +72,8 @@ public class ControllerCaraOCruz implements Initializable {
         boton.setOnAction(actionEvent -> {
             String resultado = "";
             if (num == numRandom) {
+                InsertarRanking ranking = InsertarRanking.crearInstancia();
+                ranking.setPuntos(10);
                 resultado = "Has ganado!!!";
                 cambiarDeVista("/view/historiaPeeta/CaraOCruzVictoria.fxml");
             } else {
