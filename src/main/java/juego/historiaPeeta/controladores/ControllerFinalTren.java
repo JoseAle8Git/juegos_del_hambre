@@ -1,6 +1,5 @@
 package juego.historiaPeeta.controladores;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,30 +13,26 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerDiaCosecha implements Initializable {
-    DialogoPeetaDAO dao = new DialogoPeetaDAO();
-    @FXML private Label titulo;
+public class ControllerFinalTren implements Initializable {
     @FXML private Label texto;
+    DialogoPeetaDAO dao = new DialogoPeetaDAO();
 
-    @FXML public void continuar(ActionEvent actionEvent) {
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        texto.setText(dao.obtenerTextoPeeta(23));
+    }
+
+    private void cambiarDeVista(String vista) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/TresEnRaya.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(vista));
             Parent newRoot = loader.load();
 
             // Obtener el Stage desde cualquier nodo del FXML actual
-            Stage stage = (Stage) titulo.getScene().getWindow();
+            Stage stage = (Stage) texto.getScene().getWindow();
             stage.setScene(new Scene(newRoot));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        String texto1 = dao.obtenerTextoPeeta(8);
-        String texto2 = dao.obtenerTextoPeeta(9);
-
-        titulo.setText(texto1);
-        texto.setText(texto2);
     }
 }

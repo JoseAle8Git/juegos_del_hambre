@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="juego.historiaPeeta.controladores.ControllerEleccionTributo2"
+           stylesheets="/css/cssPeeta/eleccionTributo2.css">
+    <ImageView>
+        <Image url="/images/imagesPeeta/diaCosecha.png" requestedWidth="1221" requestedHeight="720"/>
+    </ImageView>
+    <HBox styleClass="hbox">
+        <ImageView>
+            <Image url="/images/imagesPeeta/peeta.png" requestedWidth="100" preserveRatio="true"/>
+        </ImageView>
+        <Label fx:id="texto"/>
+        <ImageView>
+            <Image url="/images/imagesPeeta/katniss.png" requestedWidth="90" preserveRatio="true"/>
+        </ImageView>
+    </HBox>
+</StackPane>

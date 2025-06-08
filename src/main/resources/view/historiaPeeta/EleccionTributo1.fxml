@@ -10,12 +10,10 @@
 <?import javafx.scene.image.Image?>
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
-           fx:controller="juego.historiaPeeta.controladores.ControllerCaraOCruzDerrota"
-           stylesheets="/css/cssPeeta/caraOCruzDerrota.css">
+           fx:controller="juego.historiaPeeta.controladores.ControllerEleccionTributo1"
+           stylesheets="/css/cssPeeta/eleccionTributo1.css">
     <ImageView>
-        <image>
-            <Image url="/images/imagesPeeta/distrito12.png" requestedHeight="720" requestedWidth="1221"/>
-        </image>
+        <Image url="/images/imagesPeeta/diaCosecha.png" requestedHeight="720" requestedWidth="1221"/>
     </ImageView>
-    <Label styleClass="texto" fx:id="texto"/>
+    <Label fx:id="texto"/>
 </StackPane>

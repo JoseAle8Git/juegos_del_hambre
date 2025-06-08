@@ -15,22 +15,21 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerCaraOCruzDerrota implements Initializable {
+public class ControllerCaminoAJuegos implements Initializable {
 
-    DialogoPeetaDAO dao = new DialogoPeetaDAO();
     @FXML private Label texto;
+    DialogoPeetaDAO dao = new DialogoPeetaDAO();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        texto.setText(dao.obtenerTextoPeeta(24));
-        PauseTransition delay = new PauseTransition(Duration.seconds(4));
-        delay.setOnFinished(event -> cambiarDeVista());
-        delay.play();
+        texto.setText(dao.obtenerTextoPeeta(27));
+        PauseTransition pause = new PauseTransition(Duration.seconds(6));
+        pause.setOnFinished(event -> cambiarVista());
+        pause.play();
     }
-
-    private void cambiarDeVista() {
+    private void cambiarVista() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/EleccionTributo1.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/PrevioAJuegos.fxml"));
             Parent newRoot = loader.load();
 
             // Obtener el Stage desde cualquier nodo del FXML actual
