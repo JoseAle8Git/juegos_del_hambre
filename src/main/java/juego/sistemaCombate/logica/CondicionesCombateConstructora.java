@@ -25,7 +25,9 @@ public class CondicionesCombateConstructora {
         return new CondicionesCombate(terreno, clima, momento);
     }
 
-    public CondicionesCombate crearManual(Terreno t, Clima c, MomentoDia m) {
+    public CondicionesCombate crearManual(Terreno t, MomentoDia m) {
+        List<Clima> climas = climaDAO.getTodos();
+        Clima c = climas.get(random.nextInt(climas.size()));
         return new CondicionesCombate(t, c, m);
     }
 }

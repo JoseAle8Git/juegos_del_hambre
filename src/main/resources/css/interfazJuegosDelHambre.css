@@ -1,0 +1,55 @@
+.button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700; /* dorado */
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-background-radius: 10;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#660000, #1A0000);
+    -fx-text-fill: #FFFFFF;
+}
+
+#mapaJuegos {
+    -fx-effect: dropShadow(gaussian, black, 25, 0.5, 0, 0);
+}
+
+#zonaActual {
+    -fx-effect: dropShadow(gaussian, black, 25, 0.5, 0, 0);
+    -fx-text-fill: #fff;
+    -fx-alignment: center;
+    -fx-font-weight:  bold;
+    -fx-font-size: 30px;
+}
+
+.vida {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-effect: dropShadow(gaussian, black, 25, 0.5, 0, 0);
+}
+
+.stats {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-effect: dropShadow(gaussian, black, 25, 0.5, 0, 0);
+}
+
+#vendasRestantes {
+    -fx-effect: dropShadow(gaussian, black, 25, 0.5, 0, 0);
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+#mensaje {
+    -fx-effect: dropShadow(gaussian, black, 25, 0.5, 0, 0);
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}

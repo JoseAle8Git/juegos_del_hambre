@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaEliot.controladores.cap6.tributoSam.salvarASam.ControllerSalaArchivos"
+            prefHeight="720" prefWidth="1221"
+            fx:id="panelAP"
+            stylesheets="/css/salaArchivos.css">
+
+    <VBox styleClass="hoja" alignment="CENTER" spacing="50" AnchorPane.rightAnchor="100" AnchorPane.leftAnchor="100" AnchorPane.bottomAnchor="100" AnchorPane.topAnchor="100" >
+        <Label styleClass="titulo" text="Información de los tributos" />
+        <VBox spacing="30" alignment="CENTER">
+            <Label fx:id="distritoSexo" text="Tributo Distrito 1 mujer" />
+            <HBox alignment="CENTER" spacing="30">
+                <Label styleClass="texto" fx:id="nombreSala" text="Habitación 8: Glimmer" />
+                <Label styleClass="texto" fx:id="rolCombate" text="Rol de combate: Asesino" />
+            </HBox>
+        </VBox>
+        <HBox spacing="50" alignment="CENTER">
+            <Button fx:id="btnAnterior" text="Anterior" onAction="#anterior" />
+            <Button fx:id="btnSiguiente" text="Siguiente" onAction="#siguiente" />
+        </HBox>
+    </VBox>
+    <Button text="Salir de la sala" onAction="#salir" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" />
+
+</AnchorPane>

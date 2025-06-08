@@ -1,8 +1,6 @@
 package juego.historiaEliot.mas;
 
-import juego.sistemaCombate.modelo.ClaseCombate;
-import juego.sistemaCombate.modelo.Inventario;
-import juego.sistemaCombate.modelo.Soldado;
+import juego.sistemaCombate.modelo.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +55,8 @@ public class TributoSam {
     }
 
     public void anadirInventario(int cantidad) {
-        inventarioGeneral.put("Vendas", inventarioGeneral.getOrDefault("Vendas", 0) + cantidad);
+        ObjetoCombate objeto = new ObjetoCombate("Venda", TipoObjeto.VENDA, cantidad);
+        inventarioCombate.anadirObjeto(objeto);
     }
 
     public Inventario getInventarioCombate() {
@@ -76,12 +75,6 @@ public class TributoSam {
             return true;
         }
         return false;
-    }
-
-    public void restaurarEstadoCompleto() {
-        this.vidaActual = soldado.getVidaMaxima();
-        this.inventarioGeneral.replaceAll((k, v) -> 5);
-        this.inventarioCombate.reiniciar();
     }
 
     public void setInventarioCombate(Inventario inventario) {

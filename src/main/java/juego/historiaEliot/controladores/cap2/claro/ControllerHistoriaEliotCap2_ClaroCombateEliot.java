@@ -229,9 +229,9 @@ public class ControllerHistoriaEliotCap2_ClaroCombateEliot {
 
         alert.setOnHidden(e -> {
             if (texto.contains("derrotado")) {
-                reiniciarCombate(); // Método que debes crear para reiniciar la escena
+                reiniciarCombate();
             } else {
-                irASiguienteVista(); // Método que debes crear para cambiar a la siguiente
+                irASiguienteVista();
             }
         });
 

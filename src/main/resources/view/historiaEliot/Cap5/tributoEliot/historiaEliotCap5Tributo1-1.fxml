@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<StackPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaEliot.controladores.cap5.tributoEliot.ControllerHistoriaEliotCap5Tributo1_1"
+            prefHeight="720" prefWidth="1221"
+            style="-fx-background-image: url(/images/salaCharlaCinna.png)">
+
+    <Label fx:id="fraseLabel"
+           style="-fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);"
+           textFill="white" wrapText="true" alignment="CENTER" textAlignment="CENTER">
+        <font>
+            <Font name="System Bold" size="40" />
+        </font>
+    </Label>
+
+</StackPane>

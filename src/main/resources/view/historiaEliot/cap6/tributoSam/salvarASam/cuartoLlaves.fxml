@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaEliot.controladores.cap6.tributoSam.salvarASam.ControllerCuartoLlaves"
+            prefHeight="720" prefWidth="1221"
+            fx:id="panelAP"
+            stylesheets="/css/cuartoLlaves.css">
+
+    <VBox alignment="CENTER" spacing="25" AnchorPane.leftAnchor="100" AnchorPane.topAnchor="100" AnchorPane.bottomAnchor="100" AnchorPane.rightAnchor="100">
+        <Label text="Busca la llave" fx:id="texto" />
+        <Button text="Rebuscar" onAction="#buscar" />
+    </VBox>
+    <Button text="Salir de la sala" onAction="#salir" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="20" />
+
+</AnchorPane>

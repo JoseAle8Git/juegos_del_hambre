@@ -2,22 +2,28 @@ package juego.historiaEliot.controladores.cap6.tributoSam.logicaSalvarSam;
 
 import juego.historiaEliot.mas.TributoSam;
 
+import java.util.ArrayList;
+
 public class JuegoSalvarASam {
 
     private static JuegoSalvarASam instancia;
 
     private boolean pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10,
                     pos11, pos12, pos13, pos14, pos15, pos16, pos17, pos18, pos19, pos20,
-                    pos21, pos22, salaMapa, ropero, salaCamaras, cuartoInfo,
-                    salaMedica, salaArchivos, cuartollaves, sala1, sala2, sala3,
-                    sala4, sala5, sala6, sala7, sala8;
+                    pos21, pos22;
+    private ArrayList<Boolean> infoTributos;
+    private ArrayList<Boolean> tributoVivo;
     private boolean samSalvo, lunaSalvo, final1, final2;
     private boolean mapaCompleto;
     private boolean vistaPrimeraVez;
     private boolean camarasDesactivadas;
     private TributoSam personajeEliot;
     private boolean trajeOficial;
+    private boolean oficialSalaCamaras;
+    private boolean guardiaVivo1, guardiaVivo2;
+    private boolean llaves;
     private double cordX, cordY;
+    private int numVendas;
 
     private JuegoSalvarASam() {
         this.samSalvo = false;
@@ -28,8 +34,13 @@ public class JuegoSalvarASam {
         this.vistaPrimeraVez = false;
         this.camarasDesactivadas = false;
         this.trajeOficial = false;
+        this.oficialSalaCamaras = false;
+        this.guardiaVivo1 = false;
+        this.guardiaVivo2 = false;
+        this.llaves = false;
         this.cordX = 0;
         this.cordY = 0;
+        this.numVendas = 10;
         this.pos1 = true;
         this.pos2 = false;
         this.pos3 = false;
@@ -52,23 +63,81 @@ public class JuegoSalvarASam {
         this.pos20 = false;
         this.pos21 = false;
         this.pos22 = false;
-        this.cuartoInfo = false;
-        this.salaMedica = false;
-        this.salaArchivos = false;
-        this.salaCamaras = false;
-        this.salaMapa = false;
-        this.ropero = false;
-        this.cuartollaves = false;
-        this.sala1 = false;
-        this.sala2 = false;
-        this.sala3 = false;
-        this.sala4 = false;
-        this.sala5 = false;
-        this.sala6 = false;
-        this.sala7 = false;
-        this.sala8 = false;
+        this.infoTributos = new ArrayList<>();
+        infoTributos.add(true);
+        infoTributos.add(false);
+        infoTributos.add(false);
+        infoTributos.add(false);
+        infoTributos.add(false);
+        infoTributos.add(false);
+        infoTributos.add(false);
+        infoTributos.add(false);
+        this.tributoVivo = new ArrayList<>();
+        this.tributoVivo.add(false);
+        this.tributoVivo.add(false);
+        this.tributoVivo.add(false);
+        this.tributoVivo.add(false);
+        this.tributoVivo.add(false);
+        this.tributoVivo.add(false);
     }
 
+    public boolean getSamSalvo() {
+        return samSalvo;
+    }
+    public void setSamSalvo(boolean samSalvo) {
+        this.samSalvo = samSalvo;
+    }
+    public boolean getLunaSalvo() {
+        return lunaSalvo;
+    }
+    public void setLunaSalvo(boolean lunaSalvo) {
+        this.lunaSalvo = lunaSalvo;
+    }
+    public boolean getFinal1() {
+        return final1;
+    }
+    public void setFinal1(boolean final1) {
+        this.final1 = final1;
+    }
+    public boolean getFinal2() {
+        return final2;
+    }
+    public ArrayList<Boolean> getTributoVivo() {
+        return tributoVivo;
+    }
+    public ArrayList<Boolean> getInfoTributos() {
+        return infoTributos;
+    }
+    public boolean getLlaves() {
+        return llaves;
+    }
+    public void setLlaves(boolean llaves) {
+        this.llaves = llaves;
+    }
+    public int getNumVendas() {
+        return numVendas;
+    }
+    public void setNumVendas() {
+        this.numVendas--;
+    }
+    public boolean getGuardiaVivo1() {
+        return guardiaVivo1;
+    }
+    public void setGuardiaVivo1(boolean guardiaVivo1) {
+        this.guardiaVivo1 = guardiaVivo1;
+    }
+    public boolean getGuardiaVivo2() {
+        return guardiaVivo2;
+    }
+    public void setGuardiaVivo2(boolean guardiaVivo2) {
+        this.guardiaVivo2 = guardiaVivo2;
+    }
+    public boolean getOficialSalaCamaras() {
+        return oficialSalaCamaras;
+    }
+    public void setOficialSalaCamaras(boolean oficialSalaCamaras) {
+        this.oficialSalaCamaras = oficialSalaCamaras;
+    }
     public double getCordX() {
         return cordX;
     }
@@ -236,36 +305,6 @@ public class JuegoSalvarASam {
     }
     public void setPos22(boolean pos22) {
         this.pos22 = pos22;
-    }
-    public boolean getSalaMapa() {
-        return salaMapa;
-    }
-    public void setSalaMapa(boolean salaMapa) {
-        this.salaMapa = salaMapa;
-    }
-    public boolean getSalaArchivos() {
-        return salaArchivos;
-    }
-    public void setSalaArchivos(boolean salaArchivos) {
-        this.salaArchivos = salaArchivos;
-    }
-    public boolean getSalaCamaras() {
-        return salaCamaras;
-    }
-    public void setSalaCamaras(boolean salaCamaras) {
-        this.salaCamaras = salaCamaras;
-    }
-    public boolean getSalaMedica() {
-        return salaMedica;
-    }
-    public void setSalaMedica(boolean salaMedica) {
-        this.salaMedica = salaMedica;
-    }
-    public boolean getSalaArchivo() {
-        return salaArchivos;
-    }
-    public void setSalaArchivo(boolean salaArchivos) {
-        this.salaArchivos = salaArchivos;
     }
 
     public static JuegoSalvarASam getJuegoSalvarASam() {

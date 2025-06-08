@@ -1,0 +1,48 @@
+#panelAP {
+    -fx-alignment:  center;
+    -fx-background-image: url("/images/salaArchivos.png");
+    -fx-background-repeat:  no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: cover;
+}
+
+.hoja {
+    -fx-background-color: #fff;
+}
+
+#distritoSexo {
+    -fx-font-weight:  bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #000;
+}
+
+.texto {
+    -fx-font-weight:  bold;
+    -fx-font-size: 18px;
+    -fx-text-fill: #000;
+}
+
+.titulo {
+    -fx-font-weight:  bold;
+    -fx-font-size: 35px;
+    -fx-text-fill: #000;
+}
+
+.button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700; /* dorado */
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-background-radius: 10;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#660000, #1A0000);
+    -fx-text-fill: #FFFFFF;
+}
