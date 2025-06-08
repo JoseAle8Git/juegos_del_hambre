@@ -79,14 +79,6 @@ public class Peeta {
         return enemigos;
     }
 
-    public void setEnemigos(Enemigos enemigos) {
-        this.enemigos = enemigos;
-    }
-
-    public Map<String, Integer> getInventarioGeneral() {
-        return inventarioGeneral;
-    }
-
     public void anadirInventario(int cantidad) {
         inventarioGeneral.put("Vendas", inventarioGeneral.getOrDefault("Vendas", 0) + cantidad);
     }
@@ -107,12 +99,6 @@ public class Peeta {
             return true;
         }
         return false;
-    }
-
-    public void restaurarEstadoCompleto() {
-        this.vidaActual = clase.getVidaMaxima();
-        this.inventarioGeneral.replaceAll((k, v) -> 5);
-        this.inventarioCombate.reiniciar();
     }
 
     public void setInventarioCombate(Inventario inventario) {
