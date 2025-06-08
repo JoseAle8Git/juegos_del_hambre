@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="juego.historiaPeeta.controladores.ControllerEleccionKatniss"
+           stylesheets="/css/cssPeeta/eleccionKatniss.css">
+    <ImageView>
+        <Image url="/images/claro.png"/>
+    </ImageView>
+    <VBox styleClass="vbox">
+        <Label fx:id="texto"/>
+        <HBox styleClass="hbox">
+            <Button text="Ganar junto a Katniss" onAction="#peetaKatniss"/>
+            <Button text="Traicionar a Katniss" onAction="#traicion"/>
+        </HBox>
+    </VBox>
+</StackPane>

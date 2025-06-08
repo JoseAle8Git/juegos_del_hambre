@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaPeeta.controladores.combates.ControllerCombateGuardia"
+            stylesheets="/css/cssPeeta/combateGuardia.css">
+    <ImageView>
+        <Image url="/images/imagesPeeta/metro.png" requestedWidth="1221" requestedHeight="720"/>
+    </ImageView>
+
+    <!-- Condiciones del combate -->
+    <VBox fx:id="boxCondiciones"
+          layoutX="20" layoutY="20"
+          spacing="5"
+          style="-fx-background-color: rgba(0,0,0,0.3); -fx-padding: 10px;">
+        <Label fx:id="labelTerreno" textFill="white" style="-fx-font-size: 14px;"/>
+        <Label fx:id="labelClima" textFill="white" style="-fx-font-size: 14px;"/>
+        <Label fx:id="labelMomento" textFill="white" style="-fx-font-size: 14px;"/>
+    </VBox>
+
+    <!-- Imagen enemigo -->
+    <ImageView fx:id="imagenEnemigo" layoutX="720" layoutY="300"
+               fitWidth="200" fitHeight="200" preserveRatio="true"/>
+    <ProgressBar fx:id="barraVidaEnemigo" layoutX="700" layoutY="280" prefWidth="250"/>
+    <Label fx:id="vidaEnemigoTexto" layoutX="810" layoutY="280"
+           textFill="black" style="-fx-font-weight: bold;"/>
+    <Label fx:id="nombreEnemigo" layoutX="810" layoutY="505"
+           textFill="white" />
+
+    <!-- Imagen jugador -->
+    <ImageView fx:id="imagenJugador" layoutX="340" layoutY="400"
+               fitWidth="200" fitHeight="200" preserveRatio="true"/>
+    <ProgressBar fx:id="barraVidaJugador" layoutX="320" layoutY="380" prefWidth="250"/>
+    <Label fx:id="vidaJugadorTexto" layoutX="420" layoutY="380"
+           textFill="black" style="-fx-font-weight: bold;"/>
+    <Label fx:id="nombreJugador" layoutX="420" layoutY="600"
+           textFill="white"/>
+
+    <!-- Mensaje central -->
+    <Label fx:id="mensajeCombate" layoutX="300" layoutY="300"
+           prefWidth="600" prefHeight="60"
+           alignment="CENTER"
+           textFill="white"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <!-- Panel Inventario -->
+    <AnchorPane fx:id="panelInventario"
+                layoutX="400" layoutY="250"
+                prefWidth="420" prefHeight="200"
+                visible="false"
+                style="-fx-background-color: rgba(0, 0, 0, 0.8); -fx-border-color: white; -fx-border-width: 2px;">
+        <VBox alignment="CENTER" spacing="15" layoutX="35" layoutY="20">
+            <Button fx:id="btnUsarVendas" text="Usar Vendas" onAction="#usarVendas" minWidth="350"/>
+            <Button text="Cerrar" onAction="#cerrarInventario" minWidth="350"/>
+        </VBox>
+    </AnchorPane>
+
+    <!-- Botones de ataque e inventario -->
+    <HBox layoutX="100" layoutY="650" spacing="30">
+        <Button fx:id="btnAtaque1" minWidth="180" onAction="#usarAtaque1"/>
+        <Button fx:id="btnAtaque2" minWidth="180" onAction="#usarAtaque2"/>
+        <Button fx:id="btnAtaque3" minWidth="180" onAction="#usarAtaque3"/>
+        <Button fx:id="btnAtaque4" minWidth="180" onAction="#usarAtaque4"/>
+        <Button fx:id="btnInventario" text="Inventario" onAction="#abrirInventario" minWidth="150"/>
+    </HBox>
+</AnchorPane>

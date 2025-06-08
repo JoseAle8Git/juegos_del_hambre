@@ -17,5 +17,5 @@
             <Image url="/images/imagesPeeta/distrito12.png" requestedHeight="720" requestedWidth="1221"/>
         </image>
     </ImageView>
-    <Label styleClass="texto" text="Una pena, a la próxima quizás tengas más suerte"/>
+    <Label styleClass="texto" fx:id="texto"/>
 </StackPane>

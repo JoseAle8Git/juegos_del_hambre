@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaPeeta.controladores.ControllerEleccionClase"
+            stylesheets="/css/cssPeeta/eleccionClase.css"
+            prefWidth="1221" prefHeight="720" style="-fx-background-color: black">
+<!--    <VBox styleClass="vbox">-->
+<!--        <Label fx:id="texto"/>-->
+<!--        <ComboBox fx:id="comboClases"/>-->
+<!--        <Button text="Confirmar clase" onAction="#confirmarSeleccion"/>-->
+<!--    </VBox>-->
+    <VBox styleClass="vbox">
+        <Label fx:id="texto"/>
+        <HBox styleClass="hbox">
+            <Button text="Soldado" onAction="#soldado"/>
+            <Button text="Guerrero" onAction="#guerrero"/>
+            <Button text="Arquero" onAction="#arquero"/>
+            <Button text="Cazador" onAction="#cazador"/>
+            <Button text="Asesino" onAction="#asesino"/>
+        </HBox>
+    </VBox>
+</StackPane>

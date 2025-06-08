@@ -1,25 +1,37 @@
-package juego.historiaPeeta.controladores;
+package juego.historiaPeeta.controladores.minijuegos;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import juego.historiaPeeta.mas.DialogoPeetaDAO;
+import juego.ranking.InsertarRanking;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-public class ControllerCaraOCruz {
+public class ControllerCaraOCruz implements Initializable {
+    DialogoPeetaDAO dao = new DialogoPeetaDAO();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        texto.setText(dao.obtenerTextoPeeta(14));
+    }
 
     private static final int CARA = 0;
     private static final int CRUZ = 1;
 
+    @FXML private Label texto;
     @FXML private VBox vbox;
 
     @FXML public void cara(ActionEvent e) {
@@ -60,6 +72,8 @@ public class ControllerCaraOCruz {
         boton.setOnAction(actionEvent -> {
             String resultado = "";
             if (num == numRandom) {
+                InsertarRanking ranking = InsertarRanking.crearInstancia();
+                ranking.setPuntos(10);
                 resultado = "Has ganado!!!";
                 cambiarDeVista("/view/historiaPeeta/CaraOCruzVictoria.fxml");
             } else {

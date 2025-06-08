@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="juego.historiaPeeta.controladores.ControllerTren"
+           stylesheets="/css/cssPeeta/tren.css">
+    <ImageView>
+        <Image url="/images/imagesPeeta/metro.png" requestedHeight="720" requestedWidth="1220"/>
+    </ImageView>
+    <Label fx:id="texto"/>
+</StackPane>
