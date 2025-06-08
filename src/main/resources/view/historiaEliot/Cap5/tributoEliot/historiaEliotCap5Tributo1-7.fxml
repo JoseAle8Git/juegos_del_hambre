@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.Image?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaEliot.controladores.cap5.tributoEliot.ControllerHistoriaEliotCap5Tributo1_7"
+            prefHeight="720" prefWidth="1221"
+            fx:id="panelAP"
+            stylesheets="/css/desfile2.css">
+
+    <ImageView
+            AnchorPane.bottomAnchor="60"
+            AnchorPane.rightAnchor="30"
+            fitHeight="350"
+            fitWidth="350">
+        <image>
+            <Image url="/images/personajeLuna.png" />
+        </image>
+    </ImageView>
+    <Label fx:id="fraseLabel" AnchorPane.bottomAnchor="60" AnchorPane.leftAnchor="60" alignment="CENTER">
+        <font>
+            <Font name="System Bold" size="20" />
+        </font>
+    </Label>
+    <VBox alignment="CENTER" AnchorPane.bottomAnchor="500" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" spacing="30">
+        <Label text="Contestar:" styleClass="label-claro" />
+        <HBox alignment="CENTER" spacing="50">
+            <Button fx:id="opcionA" onAction="#irAOpcionA" />
+            <Button fx:id="opcionB" onAction="#irAOpcionB" />
+            <Button fx:id="opcionC" onAction="#irAOpcionC" />
+        </HBox>
+    </VBox>
+
+</AnchorPane>

@@ -26,7 +26,7 @@ public class TributoEliot {
 
         for(String obj : new String[] {"Carne cocinada", "Carne cruda", "Agua", "Vendas", "Hojas", "Palos", "Yesca", "Cuerda", "Tela", "Hierba antiséptica"
         }) {
-            inventarioGeneral.put(obj, 0);
+            inventarioGeneral.put(obj, 10);
         }
     }
 
@@ -59,7 +59,7 @@ public class TributoEliot {
     }
 
     public void setHambre(int cantidad) {
-        hambre = Math.max(0, Math.min(100, cantidad));
+        hambre = Math.max(0, Math.min(100, this.hambre + cantidad));
     }
 
     public int getSed() {
@@ -67,7 +67,7 @@ public class TributoEliot {
     }
 
     public void setSed(int cantidad) {
-        sed = Math.max(0, Math.min(100, cantidad));
+        sed = Math.max(0, Math.min(100, this.sed + cantidad));
     }
 
     public Map<String, Integer> getInventarioGeneral() {
@@ -94,13 +94,29 @@ public class TributoEliot {
         }
         return false;
     }
+    public boolean consumirVenda() {
+        int vendasActuales = inventarioGeneral.getOrDefault("Vendas", 0);
+        if(vendasActuales > 0) {
+            inventarioGeneral.put("Vendas", vendasActuales - 1);
+            curar(30);
+            return true;
+        }
+        return false;
+    }
 
-    public void restaurarEstadoCompleto() {
-        this.vidaActual = clase.getVidaMaxima();
-        this.hambre = 100;
-        this.sed = 100;
-        this.inventarioGeneral.replaceAll((k, v) -> 0);
-        this.inventarioCombate.reiniciar();
+    public void setInventarioCombate(Inventario inventario) {
+        this.inventarioCombate = inventario;
+    }
+
+    public boolean estaVivo() {
+        if(this.vidaActual > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public void perderVida() {
+        this.vidaActual -= 20;
     }
 
 }

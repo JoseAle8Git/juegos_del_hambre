@@ -13,7 +13,7 @@ public class Inventario {
         objetos.put(TipoObjeto.HOJA, new ObjetoCombate("Hoja" ,TipoObjeto.HOJA, 2));
     }
 
-    public void añadirObjeto(ObjetoCombate objeto) {
+    public void anadirObjeto(ObjetoCombate objeto) {
         objetos.put(objeto.getTipo(), objeto);
     }
 
@@ -33,9 +33,5 @@ public class Inventario {
     public boolean tieneObjetoDisponible(TipoObjeto tipo) {
         ObjetoCombate objeto = objetos.get(tipo);
         return objeto != null && objeto.getCantidad() > 0;
-    }
-
-    public void reiniciar() {
-        objetos.values().forEach(o -> o.setCantidad(0));
     }
 }

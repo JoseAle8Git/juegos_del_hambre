@@ -9,7 +9,7 @@ public class RankingDAO {
 
     public static void insertarRanking(InsertarRanking datos) {
         try {
-            Connection conex = ConexionDB.getInstance("tu_basededatos").getConnection();
+            Connection conex = ConexionDB.getInstance("combate_juego").getConnection();
 
             CallableStatement stmt = conex.prepareCall("{call insertarRanking(?, ?, ?, ?, ?)}");
             stmt.setString(1, datos.getNombreUsuario());

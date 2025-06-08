@@ -23,6 +23,7 @@ public class ControllerHistoriaEliotCap4Tributo2_7asesinoSiFinal {
     @FXML private void irASiguienteInteraccion(ActionEvent e) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap5/tributoEliot/historiaEliotCap5Tributo1-0.fxml"));
+            //FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap6/tributoEliot/juegosDelHambre/mapaJuegosDelHambre.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(scene);
