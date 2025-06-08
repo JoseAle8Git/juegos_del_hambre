@@ -15,12 +15,12 @@
     <ImageView>
         <Image url="/images/imagesPeeta/juegos.png" requestedHeight="720" requestedWidth="1221"/>
     </ImageView>
-    <VBox>
+    <VBox styleClass="vbox">
         <Label fx:id="texto1"/>
         <Label fx:id="texto2"/>
-        <HBox>
-            <Button fx:id="boton1" text="Al centro de la arena" onAction="#arena"/>
-            <Button fx:id="boton2" text="Al bosque" onAction="#bosque"/>
+        <HBox styleClass="hbox" fx:id="caja">
+            <Button fx:id="boton1" text="Al bosque" onAction="#bosque"/>
+            <Button fx:id="boton2" text="Al centro de la arena" onAction="#arena"/>
             <Button fx:id="boton3" text="A la cueva" onAction="#cueva"/>
         </HBox>
     </VBox>

@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import juego.historiaPeeta.controladores.ControllerFlashbackEleccion;
 import juego.historiaPeeta.mas.DialogoPeetaDAO;
+import juego.ranking.InsertarRanking;
 
 import java.io.IOException;
 import java.net.URL;
@@ -119,9 +120,13 @@ public class ControllerTresEnRaya implements Initializable {
                 alerta("Derrota", "Tu madre ha ganado esta vez");
             } else  {
                 alerta("Victoria", "Has ganado!!!");
+                InsertarRanking ranking = InsertarRanking.crearInstancia();
+                ranking.setPuntos(20);
             }
         } else if (!hayEspaciosDisponibles()) {
             juegoTerminado = true;
+            InsertarRanking ranking = InsertarRanking.crearInstancia();
+            ranking.setPuntos(10);
             alerta("Empate", "Habéis empatado!!!");
         }
     }

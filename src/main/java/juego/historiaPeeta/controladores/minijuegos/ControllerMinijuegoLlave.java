@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import juego.ranking.InsertarRanking;
 
 import java.io.IOException;
 import java.util.Random;
@@ -124,6 +125,8 @@ public class ControllerMinijuegoLlave {
     private void cambiarDeVista() {
         String vista;
         if (llave) {
+            InsertarRanking ranking = InsertarRanking.crearInstancia();
+            ranking.setPuntos(20);
             vista = "/view/historiaPeeta/FinalTren.fxml";
         } else{
             vista = "/view/historiaPeeta/CombateGuardia.fxml";

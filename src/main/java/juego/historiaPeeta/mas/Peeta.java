@@ -123,7 +123,7 @@ public class Peeta {
         return zonasVisitadas;
     }
 
-    public void zonaVisitada(int num) {
-        getZonasVisitadas()[num] = true;
+    public void setZonasVisitadas(boolean[] zonasVisitadas) {
+        this.zonasVisitadas = zonasVisitadas;
     }
 }

@@ -1,0 +1,49 @@
+.button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700; /* dorado */
+    -fx-background-color: linear-gradient(#4A0909, #000000);
+    -fx-background-radius: 10;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#660000, #1A0000);
+    -fx-text-fill: #FFFFFF;
+}
+
+#nombreEnemigo {
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+#nombreJugador {
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+#mensajeCombate {
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+#labelTerreno {
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+#labelClima {
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+#labelMomento {
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}

@@ -14,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import juego.historiaPeeta.controladores.ControllerFlashbackEleccion;
 import juego.historiaPeeta.mas.Peeta;
 import juego.ranking.InsertarRanking;
 import juego.ranking.RankingDAO;
@@ -26,8 +25,9 @@ import juego.sistemaCombate.modelo.*;
 import java.io.IOException;
 import java.util.List;
 
-public class ControllerCombateGuardia {
-    @FXML private ImageView imagenJugador;
+public class ControllerArena {
+    @FXML
+    private ImageView imagenJugador;
     @FXML private ImageView imagenEnemigo;
     @FXML private Label nombreJugador;
     @FXML private Label nombreEnemigo;
@@ -42,12 +42,12 @@ public class ControllerCombateGuardia {
     @FXML private Label labelTerreno, labelClima, labelMomento;
 
     private Jugador jugador;
+
     private Enemigo enemigo;
     private Combate combate;
 
     @FXML
     public void initialize() {
-        Peeta.crearInstancia();
         Peeta peeta = Peeta.getInstancia();
 //        jugador = (Jugador) new PersonajeDAO().cargarPersonajePorNombre("Peeta");
 
@@ -56,7 +56,7 @@ public class ControllerCombateGuardia {
         jugador.setInventario(peeta.getInventarioCombate());
 
 
-        enemigo = (Enemigo) new PersonajeDAO().cargarPersonajePorNombre("Guardia");
+        enemigo = peeta.getEnemigos().getEnemigoAleatorio();
         CondicionesCombate condiciones = new CondicionesCombateConstructora().generarAleatorias();
         combate = new Combate(jugador, enemigo, null, condiciones);
 
@@ -137,6 +137,8 @@ public class ControllerCombateGuardia {
         actualizarVida();
 
         if (!enemigo.estaVivo()) {
+            Peeta peeta = Peeta.getInstancia();
+            peeta.getEnemigos().eliminarEnemigo(enemigo);
             mostrarResultado("¡Has ganado el combate!");
             try {
 
@@ -241,31 +243,47 @@ public class ControllerCombateGuardia {
                 RankingDAO.insertarRanking(ranking);
                 finalMuerte();
             } else {
-                irASiguienteVista(); // Método que debes crear para cambiar a la siguiente
+                irASiguienteVista();
             }
         });
 
         alert.show();
     }
+
     private void finalMuerte() {
-        cambiarVista("/view/historiaPeeta/controladores/FinalMuerte.fxml");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/controladores/FinalMuerte.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) mensajeCombate.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo mostrar la siguiente vista");
+        }
     }
+
     private void irASiguienteVista() {
         InsertarRanking ranking = InsertarRanking.crearInstancia();
         ranking.setPuntos(30);
         Peeta.getInstancia().setVidaActual(jugador.getVidaActual());
         Peeta.getInstancia().setInventarioCombate(jugador.getInventario());
-        cambiarVista("/view/historiaPeeta/FinalTren.fxml");
-    }
-    private void cambiarVista(String vista) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(vista));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaPeeta/InicioJuegos.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) mensajeCombate.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch(Exception ex) {
             ex.printStackTrace();
+            mostrarAlerta("Error", "No se pudo mostrar la siguiente vista");
         }
+    }
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje);
+        alerta.showAndWait();
     }
 }
