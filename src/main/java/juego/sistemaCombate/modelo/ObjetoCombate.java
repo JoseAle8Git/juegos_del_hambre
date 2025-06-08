@@ -24,6 +24,10 @@ public class ObjetoCombate {
         return cantidad;
     }
 
+    public int aumentarCantidad() {
+        return cantidad++;
+    }
+
     public void usar() {
         if (cantidad > 0) {
             cantidad--;
@@ -42,7 +46,7 @@ public class ObjetoCombate {
         this.tipo = tipo;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setCantidad() {
+        this.cantidad++;
     }
 }

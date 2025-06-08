@@ -15,7 +15,6 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class ControllerLogin {
@@ -43,7 +42,11 @@ public class ControllerLogin {
                         InsertarRanking ranking = InsertarRanking.crearInstancia();
                         ranking.setNombreUsuario(usuario);
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu/menu.fxml"));
+<<<<<<< HEAD
+                        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap4/tributoEliot/historiaEliotCap4Tributo2-6.fxml"));
+=======
 //                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/historiaEliot/Cap6/tributoSam/salvarASam/historiaEliotMapa.fxml"));
+>>>>>>> origin/main
                         Scene scene = new Scene(loader.load());
                         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                         stage.setScene(scene);

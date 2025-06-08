@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="juego.historiaEliot.controladores.cap6.tributoEliot.juegosDelHambre.ControllerCazar"
+            prefHeight="720" prefWidth="1221"
+            fx:id="panelAP"
+            stylesheets="/css/menu.css">
+
+    <children>
+        <Pane fx:id="paneJuego" layoutX="0" layoutY="0" prefWidth="1221" prefHeight="720" />
+        <Label fx:id="reglasLabel" layoutX="310" layoutY="100" wrapText="true" prefWidth="600"
+               style="-fx-font-size: 16px;-fx-effect: dropShadow(gaussian, black, 25, 0.5, 0, 0);" textFill="#fff" />
+        <Button fx:id="botonCazar" layoutX="560" layoutY="640" text="Cazar" />
+    </children>
+
+</AnchorPane>

@@ -18,8 +18,6 @@ public class Cjuego {
 		jugador = new Jugador(nombre);
 
 		juegoActivo = true;
-		capitulo4InicioArena();
-		desarrollarArenaYCombates();
 		capitulo1Prologo();
 		if (!juegoActivo)
 			return;
@@ -35,7 +33,17 @@ public class Cjuego {
 		capitulo4InicioArena();
 		if (!juegoActivo)
 			return;
+
+		desarrollarArenaYCombates();
+		if (!juegoActivo)
+			return;
+
+		capitulo5FaseFinal();
+		if (!juegoActivo)
+			return;
 	}
+
+
 
 	public void capitulo1Prologo() {
 		Narrador.titulo("Capítulo 1: El Distrito 12 se despierta");
@@ -324,7 +332,6 @@ public class Cjuego {
 			Narrador.mostrar("✦ 'Entiendo', responde Peeta. Su tono es firme, distante.");
 			Narrador.mostrar("✦ Se levanta del asiento y se dirige a su vagón sin decir nada más.");
 		}
-
 		Narrador.separador();
 		Narrador.mostrar("✦ Te quedas mirando la silla vacía. La conversación te deja pensando.");
 		Narrador.mostrar("✦ Quizás... Peeta no sea solo un competidor.");
@@ -520,9 +527,6 @@ public class Cjuego {
 		Narrador.mostrar("✦ Frente a ti, en el centro del claro, está la Cornucopia: armas, mochilas, trampas... y muerte.");
 		Narrador.mostrar("✦ El cronómetro comienza a descender. 10... 9... 8...");
 
-
-
-
 }
 	public void desarrollarArenaYCombates() {
 		MapaJuego mapa = jugador.getMapaJuego();
@@ -559,7 +563,6 @@ public class Cjuego {
 				Narrador.separador();
 				String[] acciones = { "Atacar", "Curarse (" + curasJugador + " restantes)" };
 				int accion = MenuConsola.menuOpciones("Tu turno. ¿Qué quieres hacer?", acciones);
-
 				if (accion == 1) {
 					int danoJugador = new Random().nextInt(16) + 10; // 10-25
 					vidaEnemigo -= danoJugador;
@@ -573,7 +576,6 @@ public class Cjuego {
 					} else {
 						Narrador.mostrar("✦ No puedes curarte ahora.");
 					}
-
 				}
 
 				// TURNO DEL ENEMIGO
@@ -597,7 +599,6 @@ public class Cjuego {
 					}
 				}
 			}
-
 			if (jugador.getVida() <= 0) {
 				Narrador.mostrar("Has sido derrotado. El juego ha terminado.");
 				juegoActivo = false;
@@ -611,11 +612,135 @@ public class Cjuego {
 				Narrador.mostrar("✦ Tributos restantes: " + tributosRestantes);
 			}
 		}
-
 		Narrador.separador();
 		Narrador.mostrar("✦ Has sobrevivido. Solo quedan 4 tributos, incluido Peeta.");
-
 	}
 
+	public void capitulo5FaseFinal() {
+		Narrador.titulo("Capítulo 5: El final de los juegos");
 
+		Narrador.mostrar("✦ El sol comienza a ponerse sobre la arena, tiñendo de rojo los árboles y las rocas.");
+		Narrador.mostrar("✦ Solo quedan cuatro tributos: tú, Peeta y dos más. La tensión es insoportable.");
+		Narrador.mostrar("✦ Peeta se acerca, su rostro manchado de sangre y sudor.");
+
+		if (jugador.aceptoAmorFingido()) {
+			Narrador.mostrar("Peeta: 'Si realmente fingimos estar enamorados... entonces ganemos como un equipo.'");
+		} else {
+			Narrador.mostrar("Peeta: 'No sé si confiar en ti, pero no tenemos otra opción. Vamos a separarlos y luchar 1 a 1.'");
+		}
+
+		Narrador.mostrar("✦ Decidís que cada uno enfrentará a un tributo. Si ambos ganan, podrían ser los ganadores conjuntos del Distrito 12.");
+		Narrador.separador();
+
+		// Primer combate del jugador
+		boolean jugadorGano = combateFinal("Tu combate final", 120, 3);
+		if (!jugadorGano) {
+			Narrador.mostrar("✦ Has sido derrotado. El cañón suena por ti. El juego ha terminado.");
+			juegoActivo = false;
+			return;
+		}
+
+		Narrador.mostrar("✦ Tras vencer, miras a lo lejos y ves a Peeta luchando ferozmente.");
+		String[] opcionesAyuda = { "Sí, ayudar a Peeta", "No, dejarlo luchar solo" };
+		int eleccionAyuda = MenuConsola.menuOpciones("¿Deseas ayudar a Peeta en su combate?", opcionesAyuda);
+		boolean ayudar = (eleccionAyuda == 1);
+		boolean peetaGano;
+		if (ayudar) {
+			Narrador.mostrar("✦ Corres a ayudarlo y juntos derrotan al enemigo.");
+			peetaGano = true;
+		} else {
+			peetaGano = Math.random() < 0.5;
+			if (peetaGano) {
+				Narrador.mostrar("✦ Peeta ha logrado vencer... pero su mirada hacia ti está llena de rencor.");
+			} else {
+				Narrador.mostrar("✦ Peeta ha sido derrotado... Solo tú quedas en pie.");
+				Narrador.mostrar("✦ El último tributo enemigo corre hacia ti, buscando venganza. ¡Debes luchar!");
+
+				boolean dueloFinal = combateFinal("Combate final contra el último tributo", 130, 3);
+
+				if (dueloFinal) {
+					Narrador.titulo("🏆 FINAL: Victoria total - Sobreviviste sola");
+				} else {
+					Narrador.titulo("💀 FINAL: Caíste en el último combate");
+					juegoActivo = false;
+				}
+				return;
+			}
+		}
+
+		// Peeta ha ganado y el jugador también
+		if (ayudar) {
+			if (jugador.getRelacionPeeta() >= 5) {
+				Narrador.mostrar("Peeta: 'Lo logramos. Juntos hasta el final. Ganamos como uno solo.'");
+				Narrador.titulo("🏆 FINAL: Victoria conjunta con Peeta");
+			} else {
+				Narrador.mostrar("Peeta: 'Crees que te necesito... pero solo fuiste una carga.'");
+				boolean dueloPeeta = combateFinal("Combate final contra Peeta", 110, 2);
+				if (dueloPeeta) {
+					Narrador.titulo("🏆 FINAL: Victoria tras traición de Peeta");
+				} else {
+					Narrador.titulo("💀 FINAL: Derrotado por Peeta");
+					juegoActivo = false;
+				}
+			}
+		} else {
+			Narrador.mostrar("Peeta: 'No viniste... no puedo perdonarte.'");
+			boolean dueloPeeta = combateFinal("Duelo inevitable contra Peeta", 110, 2);
+			if (dueloPeeta) {
+				Narrador.titulo("🏆 FINAL: Victoria tras traición de Peeta");
+			} else {
+				Narrador.titulo("💀 FINAL: Derrotado por Peeta");
+				juegoActivo = false;
+			}
+		}
+	}
+	// MÉTODO DE COMBATE COMPARTIDO
+
+	private boolean combateFinal(String titulo, int vidaEnemigoBase, int curasJugador) {
+		Narrador.separador();
+		Narrador.mostrar("✦ " + titulo);
+
+		int vidaEnemigo = vidaEnemigoBase;
+		int curasEnemigo = 2;
+		int vidaMaxJugador = jugador.getClaseCombate().getVidaMaxima();
+
+		while (jugador.getVida() > 0 && vidaEnemigo > 0) {
+			String[] acciones = { "Atacar", "Curarse (" + curasJugador + " restantes)" };
+			int accion = MenuConsola.menuOpciones("Tu turno. ¿Qué quieres hacer?", acciones);
+
+			if (accion == 1) {
+				int danoJugador = new Random().nextInt(16) + 10;
+				vidaEnemigo -= danoJugador;
+				Narrador.mostrar("✦ Has atacado e infligido " + danoJugador + " de daño. Vida del enemigo: " + Math.max(vidaEnemigo, 0));
+			} else {
+				if (curasJugador > 0 && jugador.getVida() < vidaMaxJugador) {
+					int cura = new Random().nextInt(20) + 10;
+					jugador.curar(cura);
+					curasJugador--;
+					Narrador.mostrar("✦ Te has curado. Vida actual: " + jugador.getVida());
+				} else {
+					Narrador.mostrar("✦ No puedes curarte ahora.");
+				}
+			}
+			if (vidaEnemigo > 0) {
+				if (curasEnemigo > 0 && vidaEnemigo < 60 && Math.random() < 0.5) {
+					int cura = new Random().nextInt(15) + 10;
+					vidaEnemigo = Math.min(vidaEnemigoBase, vidaEnemigo + cura);
+					curasEnemigo--;
+					Narrador.mostrar("✦ El enemigo se cura. Vida actual: " + vidaEnemigo);
+				} else {
+					int danoEnemigo = new Random().nextInt(11) + 5;
+					int escudo = jugador.getClaseCombate().calcularEscudo(danoEnemigo);
+					int danoFinal = danoEnemigo - escudo;
+					if (danoFinal > 0) {
+						jugador.recibirDaño(danoFinal);
+						Narrador.mostrar("✦ El enemigo te inflige " + danoFinal + " de daño. Vida actual: " + jugador.getVida());
+					} else {
+						Narrador.mostrar("✦ Bloqueaste completamente el ataque enemigo.");
+					}
+				}
+			}
+		}
+		return jugador.getVida() > 0;
+	}
 }
